@@ -1,0 +1,51 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.python-version
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*credentials*.json
+*token*.json
+*.pem
+*.key
+
+# Local source corpus, generated indexes, and run artifacts
+data/
+corpus/
+documents/
+.chroma/
+chroma/
+chroma_db/
+vectorstore/
+vector_store/
+*.sqlite
+*.sqlite3
+*.db
+outputs/
+logs/
+*.log
+
+# Notebooks are opt-in after credential/output sanitization
+*.ipynb
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
