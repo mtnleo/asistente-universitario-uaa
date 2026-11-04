@@ -49,3 +49,6 @@ logs/
 .DS_Store
 .idea/
 .vscode/
+
+# Downloaded local prototype embedding models
+.cache-prototype/

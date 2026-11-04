@@ -1,0 +1,8 @@
+# Direct dependencies pinned from PyPI; Python 3.12. Transitive packages are not locked.
+langchain-core==1.7.5
+langchain-text-splitters==1.1.3
+langchain-google-genai==4.4.2
+langchain-huggingface==1.2.3
+sentence-transformers==6.2.0
+pypdf==6.21.4
+python-dotenv==1.2.4
