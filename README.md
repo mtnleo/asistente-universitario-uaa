@@ -51,7 +51,9 @@ Only the current question and up to four retrieved source pages (8000 characters
 
 ## What is covered
 
-Answer mode uses a deliberately small list in `DEFAULT_FILES`: student regulations, Informatics plan/correlatives, regularity resolution, two 2026 calendar amendments, a historical 2023 special-exam notice, and September 2026 fees. It does **not** cover every PDF or guarantee current rules. Blank-extraction pages in these selected files receive local macOS Vision OCR. OCR output is cached by original PDF SHA256 under ignored `.cache-prototype/ocr/` and is **unverified**. Still-empty and failed pages are reported and excluded. Tables may extract incorrectly; compare answers against originals.
+All actual `archivos_RAG/*.pdf` files are discovered at startup and indexed locally, skipping byte-identical duplicates. The current run covers **24 files / 23 unique PDFs / 149 pages**: 106 native-text pages and 43 pages with **unverified OCR**. No selected page remained empty or failed, but this is not a quality guarantee. Blank-extraction pages receive local macOS Vision OCR cached by original PDF SHA256 under ignored `.cache-prototype/ocr/`; source PDFs are never rewritten.
+
+**Local-only documents:** `manual_descarga.pdf` and `manual_mp.pdf` contain screenshots with identity/account fields that have not been verified synthetic. Their 36 pages can be searched with `--retrieve-only`, but their text is blocked from Gemini. Answer-mode retrieval filters them out before top-k selection, and context formatting rejects local-only evidence as a final guard. Cloud answer scope is currently **21 unique PDFs / 113 pages**. The file gate is not automatic personal-data detection or redaction; review any new file before adding it and update `LOCAL_ONLY_FILES` when needed. Tables, OCR and document applicability still require review.
 
 Inspect all PDFs:
 
@@ -65,11 +67,11 @@ Inspect or retrieve from explicitly selected PDFs locally:
 .venv/bin/python prototype_rag.py --retrieve-only --files CorrelativasLicInformatica.pdf --question "¿Qué correlativas se mencionan?"
 ```
 
-Custom file lists cannot be sent to Gemini by this prototype. The full corpus contains image-only PDFs and an exact duplicate; extraction reports reveal gaps, and byte-identical inputs are skipped when selected together. Quick OCR requires macOS with Swift and Vision; no OCR dependencies are installed. It is not visually quality-validated. Markdown conversion is not implemented.
+Custom file lists remain local-only in this prototype. Inspection labels cloud eligibility and reports extraction/OCR coverage. An exact duplicate is skipped rather than indexed twice. Quick OCR requires macOS with Swift and Vision; no OCR dependencies are installed. It is not visually quality-validated. Markdown conversion is not implemented.
 
 ## How it works and what remains
 
-`pypdf + local Vision OCR for selected blank pages → Documents (source/page/extraction) → token-aware chunks → local embeddings → vector search → source-page expansion → Gemini answer`
+`pypdf + local Vision OCR for blank pages → Documents (source/page/extraction) → token-aware chunks → local embeddings → vector search → source-page expansion → Gemini answer`
 
 Chunks target 100 tokenizer tokens with 15-token overlap, below the embedding model's 128-token limit. Questions exceeding 128 tokens (including special tokens) are rejected before retrieval or sending to Gemini; shorten them instead of silently losing part of the question. There is no calibrated relevance cutoff: an unrelated question still retrieves nearest neighbors. Similarity is not confidence or measured Precision/Recall; the prompt asks the model to decline unsupported answers, but this is not a factuality or prompt-injection guarantee. Citations are model-generated and must be checked. No official-currentness or amendment resolution is implemented.
 
@@ -77,4 +79,4 @@ The four assignment deliverables remain: use-case/system-prompt/model design; Py
 
 ## Record the experiment
 
-Try one supported question, one ambiguous question and one unrelated question. Record which retrieved passage supports each answer and any extraction errors. **Initial verdict:** extraction, retrieval and real Gemini answers ran successfully for three questions; OCR/factual review and measured evaluation remain pending. See [project status](docs/PROJECT_STATUS.md) before choosing the next task. Once the experiment is useful, absorb the validated pieces or delete the throwaway terminal shell rather than treating it as production.
+Try one supported question, one ambiguous question and one unrelated question. Record which retrieved passage supports each answer and any extraction errors. **Initial verdict:** three real Gemini questions succeeded with the earlier eight-file subset. Full-corpus local inspection/retrieval now runs without a new cloud call; OCR/factual review and measured evaluation remain pending. See [project status](docs/PROJECT_STATUS.md) before choosing the next task. Once the experiment is useful, absorb the validated pieces or delete the throwaway terminal shell rather than treating it as production.

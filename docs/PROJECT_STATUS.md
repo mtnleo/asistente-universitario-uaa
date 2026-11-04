@@ -23,24 +23,24 @@ Earlier conversation suggestions are not binding architecture decisions. Use the
 The entry point is [prototype_rag.py](../prototype_rag.py):
 
 ```text
-PDF text extraction / selected-page local OCR
+All PDF text extraction / local OCR
   → source filename + human page number + extraction method
   → token-aware chunks → local multilingual embeddings
   → in-memory vector search → bounded source-page expansion → Gemini answer
 ```
 
-- `--inspect`: extraction/coverage report, no Gemini. Selected blank-extraction pages may invoke OCR.
-- `--retrieve-only`: local search and evidence, no Gemini key needed.
-- Default mode or `--question`: sends the question and up to four source pages to Gemini and displays the answer with source IDs.
+- `--inspect`: extraction/coverage report, no Gemini. Blank-extraction pages may invoke OCR; local-only files are labeled.
+- `--retrieve-only`: searches all locally indexed files, including local-only manuals; no Gemini key needed.
+- Default mode or `--question`: filters out local-only files before top-k retrieval, then sends the question and up to four eligible source pages to Gemini and displays source IDs. A final context guard rejects local-only evidence.
 - No conversational memory, reservation, webhook, Calendar or email action is implemented.
 
 The code is the source of truth for settings. Current guards include a 128-token question limit, 100-token chunks with 15-token overlap, and an 8000-character cap per evidence page. A similarity score is not answer confidence or Precision/Recall. Nearest-neighbor retrieval can return irrelevant material; the prompt's refusal/citation instructions are not guarantees.
 
 ### Corpus and OCR
 
-The repository contains 24 original PDFs in `archivos_RAG/`. Answer mode deliberately selects eight: student regulations, the Informatics plan/correlatives, regularity rules, two 2026 calendar documents, a historical 2023 special-finals notice and September 2026 Mar del Plata fees. Manuals/payment screenshots are not default answer sources.
+The repository contains 24 original PDFs in `archivos_RAG/`, discovered at startup. All are ingested locally; byte-identical deduplication leaves **23 unique PDFs / 149 pages**. The full-corpus run extracted **106 native-text pages and 43 unverified OCR pages**, with no empty/failed page remaining. It produced **780 chunks**; counts can change with extraction/chunking changes. No new Gemini call was made for this expansion.
 
-The last selected-corpus run produced **46 pages and 276 chunks**: 39 pages had native text and seven used **unverified OCR**. Counts may change with extraction/chunking changes. This does not mean all 24 PDFs are indexed.
+Two manuals (`manual_descarga.pdf`, `manual_mp.pdf`) contain screenshots with unverified identity/account fields. They are **LOCAL-ONLY: 2 files / 36 pages**. Local search can use them, but Gemini cannot receive their text. Answer mode retrieves only the **21 cloud-eligible unique files / 113 pages**, and context formatting fails closed if local-only evidence reaches it. This filename gate is not PII detection or redaction; review new PDFs before adding them and maintain `LOCAL_ONLY_FILES`. Other sources received a quick, non-exhaustive safety check, not a privacy certification.
 
 [prototype_ocr.swift](../prototype_ocr.swift) uses local macOS Vision, PDFKit and Swift. It needs macOS and Swift developer tools; no cloud OCR or additional OCR package was installed. In the sandboxed development environment Vision required an approved unsandboxed run. A different machine may need another OCR path. OCR text is cached by the original PDF's SHA256 under ignored `.cache-prototype/ocr/`; source PDFs are never rewritten. Revisit scanned text, tables and reading order before relying on them.
 
@@ -48,7 +48,7 @@ Byte-identical documents are skipped when selected together. The known duplicate
 
 ### What the three questions established
 
-The trial exercised special-finals dates, enrolling in more than five courses, and an intermediate-title fee. It showed that the pipeline can retrieve evidence and generate answers, not that the whole corpus or every answer is correct.
+The earlier eight-file trial exercised special-finals dates, enrolling in more than five courses, and an intermediate-title fee. It showed that the pipeline can retrieve evidence and generate answers, not that the whole corpus or every answer is correct.
 
 - The date response used a 2026 calendar page for **19-24 October 2026**. That period is already past on this status date; do not present it as an upcoming exam date. Keep historical 2023 notices separate.
 - The course-limit response used the student regulations to explain a plan/cycle-based limit rather than a universal five-course rule. Applicability still needs checking against the student's plan.
@@ -61,7 +61,7 @@ Do not copy temporary run logs into Git. Repeat the examples from the README or 
 | Phase | Status | Missing before completion |
 | --- | --- | --- |
 | 1. Conception/design | Partial: university domain, prototype prompt and provisional model exist. | Agree users/careers/campus, supported questions and exclusions; document business rules, output/limits and model choice rationale. |
-| 2. Private knowledge/RAG | Prototype: PDF extraction, partial OCR, local embeddings and retrieval work. | Review OCR/tables, authoritative sources and dates; resolve duplicates/amendments; assess missing material, chunking and citation quality. Final storage is undecided. |
+| 2. Private knowledge/RAG | Prototype: full local corpus extraction/OCR, local embeddings and privacy-filtered retrieval work. | Review OCR/tables, authoritative sources and dates; resolve duplicates/amendments; assess missing material, chunking and citation quality. Final storage is undecided. |
 | 3. Actions/n8n | Not implemented in this app. Existing n8n availability is not an integration. | Define the university appointment service, calendar owner and availability; implement the full confirmed action flow below. |
 | 4. Evaluation/report/deployment | Not implemented. Three smoke questions are not evaluation. | Labeled relevance set, Precision/Recall measurements, controlled experiments, architecture/development/results report and deployment decisions. |
 
@@ -72,7 +72,7 @@ For Phase 4, label relevant evidence using stable source/page or text spans, not
 ## Next work, in order
 
 1. Agree the first user/career/campus slice and identify which source versions are authoritative.
-2. Review the seven OCR pages and key tables; track source dates and amendments. Add questions with known evidence plus unsupported/conflicting cases.
+2. Review the 43 OCR pages and key tables; track source dates and amendments. Add questions with known evidence plus unsupported/conflicting cases.
 3. Run a small reproducible retrieval evaluation, then decide whether improved extraction, different chunking or retrieval changes are needed. Rebuild the index after data changes.
 4. Define and implement one appointment action end to end with n8n, including confirmation and outcome verification.
 5. Add a web interface/deployment only after agreeing backend hosting and access controls; keep keys server-side. Complete architecture and results documentation alongside the experiments.
