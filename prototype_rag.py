@@ -9,14 +9,24 @@ from pathlib import Path
 import sys
 import subprocess
 
+from calendar_knowledge import CalendarDataError, validate_calendar
+from rag_tools import calendar_text
+
 ROOT = Path(__file__).resolve().parent
 CORPUS = ROOT / "archivos_RAG"
 CACHE = ROOT / ".cache-prototype"
 MODEL = "gemini-3.1-flash-lite"
 EMBEDDINGS = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 EMBEDDING_MAX_TOKENS = 128
+# Raw calendar extraction contains stale/hidden text and unresolved annex variants.
+CALENDAR_RAW_FILES = frozenset({
+    "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+    "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+    *(p.name for p in CORPUS.glob("RCS 2_26*.pdf")),
+})
 # Screenshot identities/accounts are not verified synthetic: keep these local.
-LOCAL_ONLY_FILES = frozenset({"manual_descarga.pdf", "manual_mp.pdf"})
+LOCAL_ONLY_FILES = frozenset({"manual_descarga.pdf", "manual_mp.pdf"}) | CALENDAR_RAW_FILES
+CALENDAR_KNOWLEDGE = ROOT / "knowledge" / "calendar_2026.json"
 
 SYSTEM_PROMPT = """You are a university document Q&A prototype, not an official authority.
 Answer in the language of the user's question using ONLY the provided passages.
@@ -34,6 +44,11 @@ calendar documents, and do not assume an amendment is the full calendar.
 Do not conflate degree names: if asked about Analista de Datos but a fee row says
 Analista en Informatica or another title, explicitly explain the mismatch.
 Some source pages come from unverified OCR: mark their figures/dates provisional.
+Curated calendar records preserve scope and annex differences. If status marks an
+unresolved difference, present all variants with annex/source/page and ask which
+scope applies; never silently choose one. An amendment to Annex 1 does not prove
+Annex 2 was amended. Distinct campus-specific dates are not automatically a
+contradiction. Cite the supplied evidence ID and its actual PDF page references.
 """
 
 
@@ -122,6 +137,34 @@ def load_pages(names):
     return pages, report
 
 
+def load_calendar_records():
+    """Load individually curated evidence units, not fabricated PDF pages."""
+    try:
+        data = json.loads(CALENDAR_KNOWLEDGE.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        raise PrototypeInputError("Curated calendar is missing: restore knowledge/calendar_2026.json.") from None
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        raise PrototypeInputError("Curated calendar has invalid JSON or encoding; no raw calendar fallback.") from None
+    except OSError:
+        raise PrototypeInputError("Curated calendar cannot be read; check local file permissions.") from None
+    try:
+        validate_calendar(data)
+    except CalendarDataError as error:
+        raise PrototypeInputError(f"Curated calendar schema validation failed: {error}") from None
+    records = []
+    for record in data["records"]:
+        text = calendar_text(record)
+        if len(text) > 8000:
+            raise PrototypeInputError("Curated calendar record exceeds evidence budget; split by event.")
+        records.append({"text": text, "source": "knowledge/calendar_2026.json",
+                        "page": None, "record_id": record["id"],
+                        "kind": "curated_calendar_record", "extraction": "curated_visible_source",
+                        "evidence": record["evidence"], "calendar_record": record, "cloud_allowed": True})
+    return records, {"source": "knowledge/calendar_2026.json", "kind": "curated_calendar_records",
+                     "records": len(records), "cloud_allowed": True,
+                     "coverage": data["coverage"]}
+
+
 def build_store(pages):
     """Rebuild a scratch in-memory vector index; embeddings stay on this machine."""
     from langchain_core.documents import Document
@@ -142,7 +185,8 @@ def build_store(pages):
     documents = [Document(page_content=p["text"],
                           metadata={"source": p["source"], "page": p["page"],
                                     "extraction": p["extraction"],
-                                    "cloud_allowed": p["cloud_allowed"]})
+                                    "cloud_allowed": p["cloud_allowed"], "kind": p.get("kind", "pdf_page"),
+                                    "record_id": p.get("record_id"), "evidence": p.get("evidence", [])})
                  for p in pages]
     chunks = splitter.split_documents(documents)
     embeddings = HuggingFaceEmbeddings(
@@ -152,7 +196,9 @@ def build_store(pages):
     )
     store = InMemoryVectorStore(embedding=embeddings)
     store.add_documents(chunks)
-    print(f"Indexed {len(documents)} text pages as {len(chunks)} chunks in memory.")
+    pdf_count = sum(p.get("kind", "pdf_page") == "pdf_page" for p in pages)
+    print(f"Indexed {pdf_count} PDF pages + {len(documents) - pdf_count} curated records "
+          f"as {len(chunks)} chunks in memory.")
     return store, tokenizer
 
 
@@ -162,32 +208,41 @@ def format_context(results):
         raise PrototypeInputError("Local-only evidence cannot be sent to Gemini.")
     return json.dumps([
         {"id": f"S{i}", "source": document.metadata["source"],
-         "page": document.metadata["page"],
+         "page": document.metadata["page"], "record_id": document.metadata.get("record_id"),
+         "evidence": document.metadata.get("evidence", []),
          "extraction": document.metadata["extraction"], "text": document.page_content}
         for i, (document, _) in enumerate(results, 1)
     ], ensure_ascii=False)
 
 
 def expand_hits(results, pages):
-    """Use ranked chunks for search, then up to four distinct source pages as evidence."""
+    """Expand complete evidence under a size budget, not a four-record cap."""
     from langchain_core.documents import Document
+    from rag_tools import MAX_CONTEXT_CHARS
 
-    lookup = {(p["source"], p["page"]): p for p in pages}
-    expanded, seen = [], set()
+    lookup = {(p["source"], p.get("record_id") or p["page"]): p for p in pages}
+    expanded, seen, used = [], set(), 0
     for hit, score in results:
-        key = (hit.metadata["source"], hit.metadata["page"])
+        key = (hit.metadata["source"], hit.metadata.get("record_id") or hit.metadata["page"])
         if key in seen:
             continue
         seen.add(key)
         page = lookup[key]
-        # At most 4 pages * 8000 chars; explicitly mark any page truncation.
-        text = page["text"][:8000]
-        if len(page["text"]) > 8000:
-            text += "\n[PAGE TRUNCATED AT 8000 CHARACTERS]"
-        expanded.append((Document(page_content=text, metadata=hit.metadata), score))
-        if len(expanded) == 4:
+        text = page["text"]
+        if not page.get("record_id") and len(text) > 8000:
+            text = text[:8000] + "\n[PAGE TRUNCATED AT 8000 CHARACTERS]"
+        if used + len(text) > MAX_CONTEXT_CHARS:
+            print("Evidence context budget reached; results are partial.")
             break
+        used += len(text)
+        expanded.append((Document(page_content=text, metadata=hit.metadata), score))
     return expanded
+
+
+def retrieve_evidence(store, question, pages, *, local_only=False):
+    """Offline ranked search; answer mode uses general evidence tools instead."""
+    allowed = None if local_only else lambda doc: doc.metadata.get("cloud_allowed") is True
+    return expand_hits(store.similarity_search_with_score(question, k=24, filter=allowed), pages)
 
 
 def answer_config():
@@ -212,7 +267,7 @@ def make_chat(key):
     # These confirmations are not a billing-status API or spending lock.
     return ChatGoogleGenerativeAI(
         model=MODEL, google_api_key=key, vertexai=False,
-        temperature=1.0, max_tokens=1200, timeout=45, max_retries=0,
+        temperature=1.0, max_tokens=4096, timeout=45, max_retries=0,
     )
 
 
@@ -222,10 +277,12 @@ def show_results(question, results, answer=None):
     print(f"PROTOTYPE — {question}\n")
     print("Retrieved evidence (similarity is NOT confidence, Precision, or Recall):")
     for i, (document, score) in enumerate(results, 1):
-        print(f"\n[S{i}] {document.metadata['source']} | page {document.metadata['page']}"
+        locator = (f"record {document.metadata['record_id']}" if document.metadata.get("record_id")
+                   else f"PDF page {document.metadata['page']}")
+        print(f"\n[S{i}] {document.metadata['source']} | {locator}"
               f" | {document.metadata['extraction']}"
               f" | {'cloud-eligible' if document.metadata['cloud_allowed'] else 'LOCAL-ONLY'}"
-              f" | similarity {score:.3f}\n{document.page_content}")
+              f" | {'calendar date/event match' if document.metadata.get('retrieval') else f'similarity {score:.3f}'}\n{document.page_content}")
     if answer is not None:
         print(f"\nAnswer (verify citations against the evidence):\n{answer}")
     print("\nOCR text is UNVERIFIED; empty/failed pages are excluded; no currentness guarantee.")
@@ -233,11 +290,14 @@ def show_results(question, results, answer=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--inspect", action="store_true", help="PDF coverage only; no models or API")
+    parser.add_argument("--inspect", action="store_true", help="PDF/curated coverage only; no models or API")
+    parser.add_argument("--calendar-only", action="store_true", help="Curated calendar only; requires --inspect or --retrieve-only")
     parser.add_argument("--retrieve-only", action="store_true", help="Local search only; no Gemini")
     parser.add_argument("--question", help="Ask once instead of starting the terminal loop")
     parser.add_argument("--files", nargs="+", help="PDF filenames; custom lists require --inspect or --retrieve-only")
     args = parser.parse_args()
+    if args.calendar_only and (args.files or not (args.inspect or args.retrieve_only)):
+        parser.error("--calendar-only requires --inspect or --retrieve-only and cannot combine with --files.")
     if args.files and not (args.inspect or args.retrieve_only):
         parser.error("Custom files are local-only until their privacy/content is reviewed.")
 
@@ -245,16 +305,21 @@ def main():
     os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "false"
     os.environ["LANGCHAIN_TRACING_V2"] = "false"
     os.environ["LANGSMITH_TRACING"] = "false"
+    # Validate curated evidence before credentials, PDF work, or model initialization.
+    curated, curated_report = ([], None) if args.files else load_calendar_records()
     key = None if args.inspect or args.retrieve_only else answer_config()
     names = args.files or sorted(p.name for p in CORPUS.glob("*.pdf"))
-    pages, report = load_pages(names)
+    pages, report = ([], []) if args.calendar_only else load_pages(names)
+    pages.extend(curated)
+    if curated_report is not None:
+        report.append(curated_report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     print("Coverage: empty pages may be blank or require OCR. Failed pages are excluded.")
     if args.inspect:
         return
     if not pages:
         raise PrototypeInputError("No usable text in the selected PDFs after extraction/OCR.")
-    print("Prototype scope: all PDFs local; manuals LOCAL-ONLY; OCR UNVERIFIED. "
+    print("Prototype scope: all PDFs local; manuals/raw2026calendars LOCAL-ONLY; curated calendar records eligible; OCR UNVERIFIED. "
           "No memory, booking, or paid fallback.")
     store, tokenizer = build_store(pages)
     chat = None if args.retrieve_only else make_chat(key)
@@ -271,29 +336,18 @@ def main():
             if args.question is not None:
                 raise PrototypeInputError("Question must not be empty.")
             continue
-        # Use the actual embedding tokenizer, including special tokens. Never let
-        # embedding truncation search a different question from the one Gemini sees.
-        query_tokens = len(tokenizer.encode(question, add_special_tokens=True, truncation=False))
-        if query_tokens > EMBEDDING_MAX_TOKENS:
-            message = "Question is too long for local search; shorten it to at most 128 tokens."
-            if args.question is not None:
-                raise PrototypeInputError(message)
-            print(message)
-            continue
-        # Filter inside the vector search BEFORE top-k selection, not after it.
-        allowed = None if args.retrieve_only else lambda doc: doc.metadata.get("cloud_allowed") is True
-        results = expand_hits(store.similarity_search_with_score(question, k=12, filter=allowed), pages)
-        show_results(question, results)
-        if chat is not None and results:
-            from langchain_core.messages import HumanMessage, SystemMessage
-
-            print("\nSending only this question and cloud-eligible displayed passages to Gemini...")
-            response = chat.invoke([
-                SystemMessage(content=SYSTEM_PROMPT),
-                HumanMessage(content=json.dumps({"question": question,
-                             "passages": json.loads(format_context(results))}, ensure_ascii=False)),
-            ])
-            show_results(question, results, response.text or "No text answer returned.")
+        if chat is None:
+            query_tokens = len(tokenizer.encode(question, add_special_tokens=True, truncation=False))
+            if query_tokens > EMBEDDING_MAX_TOKENS:
+                raise PrototypeInputError("Local search query exceeds 128 tokens; shorten it.")
+            results = retrieve_evidence(store, question, pages, local_only=True)
+            show_results(question, results)
+        else:
+            from rag_tools import answer_question
+            payload = answer_question(sys.modules[__name__], chat, store, tokenizer, pages, question)
+            print(payload["answer"])
+            for source in payload["sources"]:
+                print(f"[{source['id']}] {source['source']} | {source.get('record_id') or source.get('page')}")
         if args.question is not None:
             break
 

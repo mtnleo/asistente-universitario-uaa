@@ -1,0 +1,4482 @@
+{
+  "schema_version": 1,
+  "year": 2026,
+  "coverage": {
+    "method": "Manual transcription from rendered pages; native text was only an aid and invisible rows were excluded.",
+    "reviewed_sources": [
+      {
+        "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+        "sha256": "1681d9b2525806005454803863daed8718e71a39e8f33d64c98b7ff1cc8d71cb",
+        "pages": 14,
+        "visually_reviewed_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "file": "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+        "sha256": "05db794f9b289eb60574d4c822d11bba2363f0ee5422dec4d26c4a844137d1fe",
+        "pages": 2,
+        "visually_reviewed_pages": [
+          1,
+          2
+        ]
+      }
+    ],
+    "included": "All visible dated and A DEFINIR event rows in Annex1/Annex2 and operative RR435 date/scope rules; cross-annex corroborations grouped.",
+    "excluded": "Hidden/stale native-text rows, calendar grid day numbers, signatures/contact addresses. No external official-currentness or legal verification.",
+    "limitations": [
+      "These supplied documents do not establish the latest authoritative university calendar.",
+      "Annex2 is an academic organization agenda, not an explicit separate modality.",
+      "A broad exam window is not an actual available exam appointment.",
+      "Unresolved date variants and literal source anomalies must not be silently resolved."
+    ],
+    "record_count": 102
+  },
+  "records": [
+    {
+      "id": "new-year",
+      "year": 2026,
+      "event": "Feriado por año nuevo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-01",
+          "date_text": "2026-01-01",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonworking-jan",
+      "year": 2026,
+      "event": "Día no laborable",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-01-02",
+          "end": "2026-01-02",
+          "date_text": "2026-01-02",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "admin-start",
+      "year": 2026,
+      "event": "Inicio de actividades administrativas",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-01-19",
+          "end": "2026-01-19",
+          "date_text": "2026-01-19",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonregular-feb-deadline",
+      "year": 2026,
+      "event": "Fecha límite de solicitud de exámenes no regulares/libres/extensiones de cursada para llamado febrero/marzo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-01-31",
+          "end": "2026-01-31",
+          "date_text": "2026-01-31",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "regular-feb-registration",
+      "year": 2026,
+      "event": "Inicio inscripción finales regulares desde autogestión",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-02-02",
+          "end": "2026-02-02",
+          "date_text": "2026-02-02",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "finals-feb",
+      "year": 2026,
+      "event": "Turno exámenes finales febrero/marzo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-02-09",
+          "end": "2026-02-28",
+          "date_text": "2026-02-09 / 2026-02-28",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "carnival-16",
+      "year": 2026,
+      "event": "Feriado Carnaval",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-02-16",
+          "end": "2026-02-16",
+          "date_text": "2026-02-16",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "carnival-17",
+      "year": 2026,
+      "event": "Feriado Carnaval",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-02-17",
+          "end": "2026-02-17",
+          "date_text": "2026-02-17",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "courses-first-registration",
+      "year": 2026,
+      "event": "Inscripción asignaturas 1° cuatrimestre, materias bimestrales y niveles de idiomas",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-09",
+          "end": "2026-03-14",
+          "date_text": "2026-03-09 / 2026-03-14",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "conditional-first-deadline",
+      "year": 2026,
+      "event": "Fecha límite solicitud cursadas condicionales/oyentes/60-40/extensiones desde GDC",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-14",
+          "end": "2026-03-14",
+          "date_text": "2026-03-14",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "new-first-deadline",
+      "year": 2026,
+      "event": "Límite inscripción nuevos ingresantes 1° cuatrimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-14",
+          "end": "2026-03-14",
+          "date_text": "2026-03-14",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "first-term-start",
+      "year": 2026,
+      "event": "Inicio 1° cuatrimestre y 1° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-16",
+          "end": "2026-03-16",
+          "date_text": "2026-03-16",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Annex 2 p7 additionally names idiomas inglés/portugués."
+    },
+    {
+      "id": "nonworking-mar",
+      "year": 2026,
+      "event": "Día no laborable",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-23",
+          "end": "2026-03-23",
+          "date_text": "2026-03-23",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "memory-day",
+      "year": 2026,
+      "event": "Día Nacional de la Memoria por la Verdad y la Justicia",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-24",
+          "end": "2026-03-24",
+          "date_text": "2026-03-24",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "malvinas-day",
+      "year": 2026,
+      "event": "Día del Veterano de Malvinas",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-02",
+          "end": "2026-04-02",
+          "date_text": "2026-04-02",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "good-friday",
+      "year": 2026,
+      "event": "Viernes Santo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-03",
+          "end": "2026-04-03",
+          "date_text": "2026-04-03",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "telework-apr",
+      "year": 2026,
+      "event": "Modalidad teletrabajo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-04",
+          "end": "2026-04-04",
+          "date_text": "2026-04-04",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 2,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "labour-day",
+      "year": 2026,
+      "event": "Día del trabajador",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-01",
+          "end": "2026-05-01",
+          "date_text": "2026-05-01",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "telework-may",
+      "year": 2026,
+      "event": "Modalidad teletrabajo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-02",
+          "end": "2026-05-02",
+          "date_text": "2026-05-02",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "second-bimester-registration",
+      "year": 2026,
+      "event": "Inicio inscripción cursadas 2° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-04",
+          "end": "2026-05-04",
+          "date_text": "2026-05-04",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "first-bimester-end",
+      "year": 2026,
+      "event": "Fin 1° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-09",
+          "end": "2026-05-09",
+          "date_text": "2026-05-09",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "second-bimester-start",
+      "year": 2026,
+      "event": "Inicio 2° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-11",
+          "end": "2026-05-11",
+          "date_text": "2026-05-11",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "may-revolution",
+      "year": 2026,
+      "event": "Día de la Revolución de Mayo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-25",
+          "end": "2026-05-25",
+          "date_text": "2026-05-25",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "guemes-day",
+      "year": 2026,
+      "event": "Feriado trasladable: paso a la Inmortalidad General Martín Miguel de Güemes",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "date_text": "2026-06-15",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "belgrano-day",
+      "year": 2026,
+      "event": "Paso a la Inmortalidad General Manuel Belgrano",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-06-20",
+          "end": "2026-06-20",
+          "date_text": "2026-06-20",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "first-term-end",
+      "year": 2026,
+      "event": "Finalización 1° cuatrimestre y 2° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-04",
+          "end": "2026-07-04",
+          "date_text": "2026-07-04",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonregular-july-deadline",
+      "year": 2026,
+      "event": "Fecha límite solicitud exámenes no regulares/libres/extensiones para llamado julio/agosto",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-04",
+          "end": "2026-07-04",
+          "date_text": "2026-07-04",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "regular-july-registration",
+      "year": 2026,
+      "event": "Inicio inscripción finales regulares desde autogestión turno julio/agosto",
+      "status": "unresolved_difference",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "date_text": "2026-07-06",
+          "source_section": "Annex 1"
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "date_text": "02/07/2026",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Same apparent event: Annex 1 p3 says July6; Annex 2 p9 says July2. No source supplied resolves the difference. Annex 2 is an organization agenda, not an explicitly different study modality."
+    },
+    {
+      "id": "independence-day",
+      "year": 2026,
+      "event": "Día de la Independencia",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "date_text": "2026-07-09",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonworking-july",
+      "year": 2026,
+      "event": "Día no laborable",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "date_text": "2026-07-10",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "telework-july",
+      "year": 2026,
+      "event": "Modalidad teletrabajo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-11",
+          "end": "2026-07-11",
+          "date_text": "2026-07-11",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "finals-july",
+      "year": 2026,
+      "event": "Turno exámenes finales julio/agosto",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-13",
+          "end": "2026-08-01",
+          "date_text": "2026-07-13 / 2026-08-01",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "courses-second-registration",
+      "year": 2026,
+      "event": "Inicio inscripción asignaturas 2° cuatrimestre, bimestrales e idiomas",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-03",
+          "end": "2026-08-03",
+          "date_text": "2026-08-03",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "new-second-deadline",
+      "year": 2026,
+      "event": "Fecha límite inscripción nuevos ingresantes 2° cuatrimestre",
+      "status": "unresolved_difference",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-08",
+          "end": "2026-08-08",
+          "date_text": "2026-08-08",
+          "source_section": "Annex 1"
+        },
+        {
+          "start": "2026-08-14",
+          "end": "2026-08-14",
+          "date_text": "14/08/2026",
+          "source_section": "Annex 1 combined conditional-course row"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Annex 1 p3 repeats límite de inscripción a nuevos ingresantes on Aug14 in a combined row; its dedicated row and Annex 2 p11 say Aug8. No supplied resolution distinguishes these deadlines; ask the university, do not choose silently."
+    },
+    {
+      "id": "second-term-start",
+      "year": 2026,
+      "event": "Inicio clases 2° cuatrimestre y 1° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-10",
+          "end": "2026-08-10",
+          "date_text": "2026-08-10",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Annex 2 p11 additionally names idiomas inglés/portugués."
+    },
+    {
+      "id": "conditional-second-deadline",
+      "year": 2026,
+      "event": "Fecha límite solicitud cursadas condicionales/oyentes/60-40/extensiones desde GDC",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-14",
+          "end": "2026-08-14",
+          "date_text": "2026-08-14",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "san-martin-day",
+      "year": 2026,
+      "event": "Paso a la Inmortalidad General José de San Martín",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-17",
+          "end": "2026-08-17",
+          "date_text": "2026-08-17",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 3,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "student-day",
+      "year": 2026,
+      "event": "Día del estudiante",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-09-21",
+          "end": "2026-09-21",
+          "date_text": "2026-09-21",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "special-oct-registration",
+      "year": 2026,
+      "event": "Solicitudes inscripción mesas turno especial octubre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-10-01",
+          "end": "2026-10-05",
+          "date_text": "2026-10-01 / 2026-10-05",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "third-bimester-end",
+      "year": 2026,
+      "event": "Fin 1° bimestre del segundo cuatrimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-10-03",
+          "end": "2026-10-03",
+          "date_text": "2026-10-03",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fourth-bimester-start",
+      "year": 2026,
+      "event": "Inicio 2° bimestre del segundo cuatrimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-10-05",
+          "end": "2026-10-05",
+          "date_text": "2026-10-05",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "diversity-day",
+      "year": 2026,
+      "event": "Día del Respeto a la Diversidad Cultural",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-10-12",
+          "end": "2026-10-12",
+          "date_text": "2026-10-12",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "special-oct-finals",
+      "year": 2026,
+      "event": "Turno especial mesas exámenes finales sin suspensión de clases",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-10-19",
+          "end": "2026-10-24",
+          "date_text": "2026-10-19 / 2026-10-24",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonregular-dec-deadline",
+      "year": 2026,
+      "event": "Fecha límite solicitud exámenes no regulares/libres/extensiones para llamado diciembre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-21",
+          "end": "2026-11-21",
+          "date_text": "2026-11-21",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "telework-nov",
+      "year": 2026,
+      "event": "Modalidad teletrabajo",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-21",
+          "end": "2026-11-21",
+          "date_text": "2026-11-21",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "sovereignty-day",
+      "year": 2026,
+      "event": "Feriado trasladable Día de la Soberanía Nacional",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-23",
+          "end": "2026-11-23",
+          "date_text": "2026-11-23",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "second-term-end",
+      "year": 2026,
+      "event": "Fin 2° cuatrimestre y 2° bimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-28",
+          "end": "2026-11-28",
+          "date_text": "2026-11-28",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "regular-dec-registration",
+      "year": 2026,
+      "event": "Inicio inscripción finales regulares turno diciembre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-01",
+          "end": "2026-12-01",
+          "date_text": "2026-12-01",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "intercampus-meeting",
+      "year": 2026,
+      "event": "Encuentro inter-sedes sin actividad académico-administrativa",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-05",
+          "end": "2026-12-05",
+          "date_text": "2026-12-05",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonworking-dec7",
+      "year": 2026,
+      "event": "Día no laborable",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-07",
+          "end": "2026-12-07",
+          "date_text": "2026-12-07",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "virgin-day",
+      "year": 2026,
+      "event": "Día de la Virgen",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-08",
+          "end": "2026-12-08",
+          "date_text": "2026-12-08",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "nonworking-dec24",
+      "year": 2026,
+      "event": "Día no laborable",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-24",
+          "end": "2026-12-24",
+          "date_text": "2026-12-24",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "christmas",
+      "year": 2026,
+      "event": "Navidad",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-25",
+          "end": "2026-12-25",
+          "date_text": "2026-12-25",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "dec31-label",
+      "year": 2026,
+      "event": "Año nuevo (etiqueta literal de la fuente para el 31 de diciembre)",
+      "status": "source_anomaly",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-31",
+          "end": "2026-12-31",
+          "date_text": "2026-12-31",
+          "source_section": "Annex 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Printed date is 31/12/2026 and label is Año nuevo. Preserve both; do not silently turn this into Jan1 or infer national-law status."
+    },
+    {
+      "id": "finals-dec",
+      "year": 2026,
+      "event": "Turno exámenes finales diciembre",
+      "status": "unresolved_difference",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-12-07",
+          "end": "2026-12-29",
+          "date_text": "2026-12-07 / 2026-12-29",
+          "source_section": "Annex 1"
+        },
+        {
+          "start": "2026-12-07",
+          "end": "2026-12-26",
+          "date_text": "07/12/2026 al 26/12/2026",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 4,
+          "section": "Annex 1",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 1(a) and Art. 2",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "RCS Art.1(a) explicitly enables Dec28/29 for exam boards by modifying Annex1; it does not expressly amend Annex2. Annex1 p4 range Dec7–29 versus Annex2 p14 Dec7–26 retained. Nonworking/holiday rows also overlap this broad window; do not infer a specific available exam day or slot."
+    },
+    {
+      "id": "extension-call-close",
+      "year": 2026,
+      "event": "Cierre convocatoria anual proyectos extensión 2026",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-01-31",
+          "end": "2026-01-31",
+          "date_text": "2026-01-31",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "extension-proposals",
+      "year": 2026,
+      "event": "Presentación proyectos de extensión",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-02-01",
+          "end": "2026-02-28",
+          "date_text": "2026-02-01 / 2026-02-28",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "extension-review",
+      "year": 2026,
+      "event": "Período evaluación proyectos de extensión",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-02",
+          "end": "2026-03-31",
+          "date_text": "2026-03-02 / 2026-03-31",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "english-level-mar",
+      "year": 2026,
+      "event": "Niveladores inglés todas las sedes y modalidades",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-02",
+          "end": "2026-03-07",
+          "date_text": "2026-03-02 / 2026-03-07",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Extensión/Académica"
+    },
+    {
+      "id": "conditional-first-exceptions",
+      "year": 2026,
+      "event": "Límite solicitud cursadas condicionales, oyentes y excepciones por superposición 60/40 o cuestiones laborales para 1° cuatrimestre",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-03-14",
+          "end": "2026-03-14",
+          "date_text": "2026-03-14",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Académica"
+    },
+    {
+      "id": "italian-french-apr",
+      "year": 2026,
+      "event": "Inicio cursos italiano y francés",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-13",
+          "end": "2026-04-13",
+          "date_text": "2026-04-13",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 8,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "extension-start",
+      "year": 2026,
+      "event": "Inicio actividades proyectos extensión",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-20",
+          "end": "2026-04-20",
+          "date_text": "2026-04-20",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 8,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "titles-july-deadline",
+      "year": 2026,
+      "event": "Límite solicitud títulos a entregar colación julio/agosto 2026",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-04-30",
+          "end": "2026-04-30",
+          "date_text": "2026-04-30",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 8,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Académica"
+    },
+    {
+      "id": "extension-days",
+      "year": 2026,
+      "event": "3° Jornadas de Extensión e Innovación",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-05-11",
+          "end": "2026-05-15",
+          "date_text": "2026-05-11 / 2026-05-15",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 1(b)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "survey-july",
+      "year": 2026,
+      "event": "Encuesta estudiantes/censo docente",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-04",
+          "end": "2026-07-04",
+          "date_text": "2026-07-04",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "CPACA"
+    },
+    {
+      "id": "english-level-july",
+      "year": 2026,
+      "event": "Niveladores inglés todas las sedes y modalidades",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-07-27",
+          "end": "2026-07-31",
+          "date_text": "2026-07-27 / 2026-07-31",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Extensión/Académica"
+    },
+    {
+      "id": "research-days",
+      "year": 2026,
+      "event": "XII Jornadas Anuales Investigación UAA",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-08-24",
+          "end": "2026-08-28",
+          "date_text": "2026-08-24 / 2026-08-28",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Investigación y Facultades"
+    },
+    {
+      "id": "italian-french-sep",
+      "year": 2026,
+      "event": "Inicio cursos idiomas italiano y francés",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-09-14",
+          "end": "2026-09-14",
+          "date_text": "2026-09-14",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 12,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "titles-dec-deadline",
+      "year": 2026,
+      "event": "Fecha límite solicitud títulos a entregar diciembre 2026",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-09-29",
+          "end": "2026-09-29",
+          "date_text": "2026-09-29",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 12,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Académica"
+    },
+    {
+      "id": "research-students-days",
+      "year": 2026,
+      "event": "VI Jornadas Anuales estudiantes auxiliares de investigación",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-02",
+          "end": "2026-11-06",
+          "date_text": "2026-11-02 / 2026-11-06",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Investigación y Facultades"
+    },
+    {
+      "id": "survey-nov",
+      "year": 2026,
+      "event": "Encuesta estudiantes/censo docente",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-28",
+          "end": "2026-11-28",
+          "date_text": "2026-11-28",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "CPACA"
+    },
+    {
+      "id": "english-level-nov",
+      "year": 2026,
+      "event": "Niveladores inglés todas las sedes y modalidades",
+      "status": "documented",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2026-11-30",
+          "end": "2026-12-04",
+          "date_text": "2026-11-30 / 2026-12-04",
+          "source_section": "Annex 2"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Extensión/Académica"
+    },
+    {
+      "id": "intro-coordination-02",
+      "year": 2026,
+      "event": "Encuentro con coordinación del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 2
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Gestión del INTRO"
+    },
+    {
+      "id": "intro-distance-02",
+      "year": 2026,
+      "event": "Encuentro modalidad a distancia del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 2
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "IEAD"
+    },
+    {
+      "id": "intro-faculties-02",
+      "year": 2026,
+      "event": "Encuentro de facultades del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 2
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 5,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Facultades"
+    },
+    {
+      "id": "intro-coordination-03",
+      "year": 2026,
+      "event": "Encuentro con coordinación del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 3
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 6,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Gestión del INTRO"
+    },
+    {
+      "id": "intro-distance-03",
+      "year": 2026,
+      "event": "Encuentro modalidad a distancia del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 3
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 6,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "IEAD"
+    },
+    {
+      "id": "intro-faculties-03",
+      "year": 2026,
+      "event": "Encuentro de facultades del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 3
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 6,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Facultades"
+    },
+    {
+      "id": "intro-coordination-07",
+      "year": 2026,
+      "event": "Encuentro con coordinación del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 7
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Gestión del INTRO"
+    },
+    {
+      "id": "intro-distance-07",
+      "year": 2026,
+      "event": "Encuentro modalidad a distancia del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 7
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "IEAD"
+    },
+    {
+      "id": "intro-faculties-07",
+      "year": 2026,
+      "event": "Encuentro de facultades del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 7
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 9,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Facultades"
+    },
+    {
+      "id": "intro-coordination-11",
+      "year": 2026,
+      "event": "Encuentro con coordinación del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 11
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Gestión del INTRO"
+    },
+    {
+      "id": "intro-distance-11",
+      "year": 2026,
+      "event": "Encuentro modalidad a distancia del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 11
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "IEAD"
+    },
+    {
+      "id": "intro-faculties-11",
+      "year": 2026,
+      "event": "Encuentro de facultades del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 11
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Facultades"
+    },
+    {
+      "id": "intro-coordination-12",
+      "year": 2026,
+      "event": "Encuentro con coordinación del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Gestión del INTRO"
+    },
+    {
+      "id": "intro-distance-12",
+      "year": 2026,
+      "event": "Encuentro modalidad a distancia del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "IEAD"
+    },
+    {
+      "id": "intro-faculties-12",
+      "year": 2026,
+      "event": "Encuentro de facultades del INTRO",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "CURSO INTRO; source says A DEFINIR, no exact date supplied.",
+      "responsible_area": "Facultades"
+    },
+    {
+      "id": "research-assistants-call",
+      "year": 2026,
+      "event": "Convocatoria inscripción estudiantes auxiliares investigación",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 3
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Investigación"
+    },
+    {
+      "id": "research-info",
+      "year": 2026,
+      "event": "Jornada informativa estudiantes auxiliares investigación",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 3
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 7,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "No indicada"
+    },
+    {
+      "id": "graduation-july",
+      "year": 2026,
+      "event": "Colación de grados UAA",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 7
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Extensión/Académica"
+    },
+    {
+      "id": "education-july",
+      "year": 2026,
+      "event": "V Jornada Educación y IV Encuentro estudiantes y graduados carreras Educación modalidad a distancia UAA",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "carreras de Educación"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 7
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 10,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "IEAD/Rectorado"
+    },
+    {
+      "id": "expo-atlantida",
+      "year": 2026,
+      "event": "Expo Atlántida",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 8
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Articulación y Promoción"
+    },
+    {
+      "id": "education-aug",
+      "year": 2026,
+      "event": "IV Jornada Educación y III Encuentro estudiantes y graduados carreras Educación modalidad a distancia UAA",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "carreras de Educación"
+        ],
+        "modalities": [
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "Event label explicitly concerns modalidad a distancia; general Art2 calendar applicability must not broaden this event to both modalities."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 8
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 11,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "IEAD/Rectorado"
+    },
+    {
+      "id": "cisas",
+      "year": 2026,
+      "event": "XIII Congreso Internacional Salvamento Acuático y Socorrismo CISAS2026 sede Mar de Ajó",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "not specified for this event"
+        ],
+        "campuses": [
+          "Mar de Ajó"
+        ],
+        "qualification": "Event label explicitly locates CISAS at sede Mar de Ajó (RCS Annex2 p13); Art2 calendar applicability does not establish event delivery modality."
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 10
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Facultad Humanidades y Secretaría Extensión"
+    },
+    {
+      "id": "research-call",
+      "year": 2026,
+      "event": "Convocatoria bi-anual proyectos investigación",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 10
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "No indicada"
+    },
+    {
+      "id": "oath-nov",
+      "year": 2026,
+      "event": "Jura por sedes y modalidad distancia graduados UAA",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 11
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 13,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Académica/Extensión"
+    },
+    {
+      "id": "extension-call-2027",
+      "year": 2026,
+      "event": "Convocatoria proyectos extensión ciclo lectivo2027",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "No indicada"
+    },
+    {
+      "id": "oath-dec",
+      "year": 2026,
+      "event": "Jura por sedes y modalidad distancia graduados UAA",
+      "status": "date_to_be_defined",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "A DEFINIR",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "",
+      "responsible_area": "Secretaría Académica/Extensión"
+    },
+    {
+      "id": "extension-results-info",
+      "year": 2026,
+      "event": "Jornada informativa publicación resultados convocatoria proyectos y auxiliares extensión",
+      "status": "approximate_date",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": null,
+          "end": null,
+          "date_text": "1° SEMANA (ABRIL)",
+          "source_section": "Annex 2",
+          "month_context": 4
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 8,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Printed date is 1° SEMANA under April. No exact day or formal date boundaries are supplied.",
+      "responsible_area": "Secretaría de Extensión"
+    },
+    {
+      "id": "research-call-close-anomaly",
+      "year": 2026,
+      "event": "Cierre convocatoria bi-anual proyectos investigación",
+      "status": "source_anomaly",
+      "scope": {
+        "programs": [
+          "grado",
+          "pregrado"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": "general calendar; no campus restriction stated",
+        "qualification": "RCS 2/26 Art. 2; postgraduate dates may differ"
+      },
+      "variants": [
+        {
+          "start": "2029-12-29",
+          "end": "2029-12-29",
+          "date_text": "29/12/2029 (literal)",
+          "source_section": "Annex 2",
+          "month_context": 12
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 14,
+          "section": "Annex 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RCS 2_26 Modificaciones al Calendario Académico (RCS 51-25) (ESTUDIANTES).pdf",
+          "page": 1,
+          "section": "Art. 2 (general program/modality scope)",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "Literal visible date 29/12/2029 in December2026 agenda. Possible typographical error is unresolved; no corrected2026 date can be asserted.",
+      "responsible_area": "Secretaría de Investigación"
+    },
+    {
+      "id": "suspension-nov9",
+      "year": 2026,
+      "event": "Suspensión actividades académicas y administrativas presenciales y a distancia según RR435/26",
+      "status": "documented_amendment",
+      "scope": {
+        "programs": [
+          "not separately limited in RR435/26"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": [
+          "Mar de Ajó",
+          "Mar del Plata",
+          "Dolores",
+          "CABA"
+        ],
+        "qualification": "Nov11 restricted to Buenos Aires province campuses; do not apply automatically to CABA."
+      },
+      "variants": [
+        {
+          "start": "2026-11-09",
+          "end": "2026-11-09",
+          "date_text": "2026-11-09",
+          "source_section": "Art. 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+          "page": 1,
+          "section": "Art. 1 and beginning Art. 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+          "page": 2,
+          "section": "Art. 2 continuation and Art. 3",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "RR435/26 dated22Oct2026, approved ad referendum. Art2 requires rescheduling affected classes, exams and submissions and allows asynchronous replacement; new schedules must be reported to Divisiones Alumnos. No replacement dates given. Art3 submits for future homologation; no supplied proof homologation occurred. Claims about holidays are attributed to this document, not independently verified law."
+    },
+    {
+      "id": "suspension-nov11",
+      "year": 2026,
+      "event": "Suspensión actividades académicas y administrativas presenciales y a distancia según RR435/26",
+      "status": "documented_amendment",
+      "scope": {
+        "programs": [
+          "not separately limited in RR435/26"
+        ],
+        "modalities": [
+          "presencial",
+          "a distancia"
+        ],
+        "campuses": [
+          "sedes ubicadas en provincia de Buenos Aires"
+        ],
+        "qualification": "Nov11 restricted to Buenos Aires province campuses; do not apply automatically to CABA."
+      },
+      "variants": [
+        {
+          "start": "2026-11-11",
+          "end": "2026-11-11",
+          "date_text": "2026-11-11",
+          "source_section": "Art. 1"
+        }
+      ],
+      "evidence": [
+        {
+          "file": "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+          "page": 1,
+          "section": "Art. 1 and beginning Art. 2",
+          "verification": "rendered_page_visual_review"
+        },
+        {
+          "file": "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
+          "page": 2,
+          "section": "Art. 2 continuation and Art. 3",
+          "verification": "rendered_page_visual_review"
+        }
+      ],
+      "notes": "RR435/26 dated22Oct2026, approved ad referendum. Art2 requires rescheduling affected classes, exams and submissions and allows asynchronous replacement; new schedules must be reported to Divisiones Alumnos. No replacement dates given. Art3 submits for future homologation; no supplied proof homologation occurred. Claims about holidays are attributed to this document, not independently verified law."
+    }
+  ]
+}
