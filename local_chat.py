@@ -4,6 +4,9 @@ import json
 import os
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from threading import Lock
+from calendar_actions import ActionSessions, ZONE
+from datetime import datetime
+from http.cookies import SimpleCookie
 
 HOST, PORT = '127.0.0.1', 8765
 ORIGIN = f'http://{HOST}:{PORT}'
@@ -17,8 +20,9 @@ HTML = r'''<!doctype html>
 <p class="note">Busca en los documentos locales y responde con Gemini. Prototipo, no información oficial.</p>
 <form id="form"><label for="question">Tu pregunta</label><textarea id="question" rows="3" maxlength="2000" required placeholder="¿Cuándo son los exámenes finales de diciembre de 2026?"></textarea><button id="send">Preguntar</button></form>
 <p id="status" role="status" aria-live="polite"></p>
+<div id="action" aria-live="polite"></div>
 <section aria-label="Respuesta"><div id="answer"></div><div id="sources"></div></section>
-<small>La primera pregunta prepara el índice y puede tardar. Solo se envían a Gemini la pregunta y los fragmentos permitidos. Cada pregunta es independiente, sin memoria de conversación.</small>
+<small>La primera pregunta prepara el índice y puede tardar. Solo se envían a Gemini la pregunta y los fragmentos permitidos. Las preguntas documentales son independientes. Los datos de un evento se conservan solo para aclararlo y confirmarlo (20 minutos). El correo destinatario queda local hasta confirmar su envío a n8n.</small>
 <script>
 const form=document.getElementById('form'),q=document.getElementById('question'),button=document.getElementById('send'),status=document.getElementById('status'),answer=document.getElementById('answer'),sources=document.getElementById('sources');
 // Small local Markdown renderer: all model text becomes text nodes, never HTML.
@@ -32,6 +36,17 @@ function inlineMarkdown(parent,text){
     el.textContent=token.slice(strong?2:1,strong?-2:-1);parent.append(el);start=match.index+token.length;
   }
   parent.append(document.createTextNode(text.slice(start)));
+}
+function showAction(pending){
+  const box=document.getElementById('action');box.replaceChildren();if(!pending)return;
+  const summary=document.createElement('pre');summary.textContent='Evento: '+pending.title+'\nInicio: '+pending.start+'\nFin: '+pending.end+'\nCorreo: '+pending.email;box.append(summary);
+  for(const [label,confirm] of [['Confirmar y enviar',true],['Cancelar',false]]){
+    const b=document.createElement('button');b.type='button';b.textContent=label;b.style.marginRight='12px';box.append(b);
+    b.onclick=async()=>{for(const x of box.querySelectorAll('button'))x.disabled=true;button.disabled=true;
+      try{const r=await fetch('/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:pending.id,confirm})});const data=await r.json();renderMarkdown(data.answer||data.error);box.replaceChildren();status.textContent='';}
+      catch{status.textContent='Resultado incierto. No repitas la solicitud; revisá Calendar/n8n.';}
+      finally{button.disabled=false;}};
+  }
 }
 function renderMarkdown(text){
   answer.replaceChildren();const lines=String(text).replace(/\r\n?/g,'\n').split('\n');
@@ -61,7 +76,7 @@ function renderMarkdown(text){
     inlineMarkdown(paragraph,line);
   }
 }
-form.addEventListener('submit',async e=>{e.preventDefault();const question=q.value.trim();if(!question)return;button.disabled=true;status.textContent='Buscando y preparando la respuesta… La primera consulta puede tardar más.';answer.textContent='';sources.replaceChildren();try{const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});const data=await r.json();if(!r.ok)throw new Error(data.error||'No se pudo responder.');renderMarkdown(data.answer);for(const source of data.sources){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('pre');s.textContent='['+source.id+'] '+source.source+(source.page?' · página '+source.page:'')+(source.record_id?' · '+source.record_id:'');p.textContent=source.text+(source.evidence.length?'\n\nProcedencia: '+JSON.stringify(source.evidence,null,2):'');d.append(s,p);sources.append(d)}status.textContent='Listo.'}catch(error){status.textContent=error.message||'No se pudo conectar con el servidor local.'}finally{button.disabled=false}});
+form.addEventListener('submit',async e=>{e.preventDefault();const question=q.value.trim();if(!question)return;button.disabled=true;status.textContent='Buscando y preparando la respuesta… La primera consulta puede tardar más.';answer.textContent='';sources.replaceChildren();showAction(null);try{const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});const data=await r.json();if(!r.ok)throw new Error(data.error||'No se pudo responder.');renderMarkdown(data.answer);showAction(data.pending);for(const source of data.sources){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('pre');s.textContent='['+source.id+'] '+source.source+(source.page?' · página '+source.page:'')+(source.record_id?' · '+source.record_id:'');p.textContent=source.text+(source.evidence.length?'\n\nProcedencia: '+JSON.stringify(source.evidence,null,2):'');d.append(s,p);sources.append(d)}status.textContent='Listo.'}catch(error){status.textContent=error.message||'No se pudo conectar con el servidor local.'}finally{button.disabled=false}});
 </script></html>'''
 
 
@@ -69,8 +84,9 @@ class Assistant:
     def __init__(self):
         self.lock = Lock()
         self.ready = False
+        self.actions = ActionSessions()
 
-    def ask(self, question):
+    def ask(self, question, session):
         # Serialize questions and keep the expensive index alive between requests.
         with self.lock:
             import prototype_rag as rag
@@ -88,7 +104,17 @@ class Assistant:
                 self.pages, self.store, self.tokenizer, self.chat = pages, store, tokenizer, chat
                 self.ready = True
             from rag_tools import answer_question
-            return answer_question(rag, self.chat, self.store, self.tokenizer, self.pages, question)
+            # context() invalidates complete proposals before extracting new fields.
+            context = self.actions.context(session, question)
+            result = answer_question(rag, self.chat, self.store, self.tokenizer, self.pages, context,
+                action_handler=lambda args: self.actions.propose(session, args),
+                action_context='Server clock: ' + datetime.now(ZONE).isoformat(timespec='seconds') +
+                '. Timezone: America/Argentina/Buenos_Aires. Current draft: ' + json.dumps(session['draft']))
+            if session['active']:
+                session['history'] = [context[-6000:]]
+            else:
+                session['history'], session['email'] = [], ''
+            return result
 
 
 
@@ -105,6 +131,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Type', content_type)
         self.send_header('Content-Length', str(len(body)))
         self.send_header('Cache-Control', 'no-store')
+        if getattr(self, 'session_token', None):
+            self.send_header('Set-Cookie', 'ia2_session=' + self.session_token + '; HttpOnly; SameSite=Strict; Path=/')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('X-Frame-Options', 'DENY')
         self.end_headers()
@@ -125,7 +153,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.local_request() or self.headers.get('Origin') != ORIGIN:
             return self.reply(403, {'error': 'Solo se aceptan consultas desde la página local.'})
-        if self.path != '/ask':
+        if self.path not in {'/ask', '/action'}:
             return self.reply(404, {'error': 'No encontrado.'})
         if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
             return self.reply(415, {'error': 'Se requiere JSON.'})
@@ -134,13 +162,24 @@ class Handler(BaseHTTPRequestHandler):
             if not 0 < length <= 12000:
                 raise ValueError()
             data = json.loads(self.rfile.read(length))
-            question = data.get('question') if isinstance(data, dict) else None
+            if not isinstance(data, dict):
+                raise ValueError()
+            cookie = SimpleCookie(self.headers.get('Cookie', ''))
+            token = cookie['ia2_session'].value if 'ia2_session' in cookie else None
+            self.session_token, session = assistant.actions.get(token)
+            if self.path == '/action':
+                if set(data) != {'id', 'confirm'} or not isinstance(data['id'], str) or type(data['confirm']) is not bool:
+                    raise ValueError()
+                return self.reply(200, assistant.actions.decide(self.session_token, data['id'], data['confirm']))
+            question = data.get('question')
             if not isinstance(question, str) or not question.strip() or len(question) > 2000:
                 raise ValueError()
         except (ValueError, UnicodeDecodeError):
             return self.reply(400, {'error': 'Ingresá una pregunta de hasta 2000 caracteres.'})
         try:
-            self.reply(200, assistant.ask(question.strip()))
+            self.reply(200, assistant.ask(question.strip(), session))
+        except ValueError as error:
+            return self.reply(400, {'error': str(error)})
         except Exception as error:
             import prototype_rag as rag
             if isinstance(error, rag.PrototypeInputError):

@@ -51,7 +51,40 @@ Type a question or `/quit`. For a single answer:
 
 The current question starts a bounded evidence-tool conversation with Gemini: up to **three model calls**, no retries or paid/model fallback. Gemini chooses a concise document search or reads the complete calendar (optionally filtered by date/year), and can refine once before answering. Broad calendar lists use calendar browsing, **not a fixed top-k**. Up to three tools per retrieval round execute, with a cumulative **160,000-character evidence budget**. Incomplete coverage and PDF-page truncation are disclosed; output is capped at 4096 tokens and may still be partial. More model calls consume more of the same shared Free-tier quota, not a new service.
 
-Only cloud-eligible evidence is transmitted. Sources have stable IDs for that question and are displayed below the answer. No whole-PDF upload, conversation history, n8n action, web search or booking occurs. Raw calendar PDFs and manuals retain their local-only gate. The user reported four independently chosen calendar/document questions working after the tool-based redesign. This is a user-reported smoke check, not comprehensive validation or measured retrieval quality; the offline test verifies tool orchestration, not model judgment.
+Only cloud-eligible evidence is transmitted. Sources have stable IDs for that question and are displayed below the answer. No whole-PDF upload, general conversation history or web search occurs. The web chat also supports explicitly confirmed event actions (see below); the CLI remains document-only. Raw calendar PDFs and manuals retain their local-only gate. The user reported four independently chosen calendar/document questions working after the tool-based redesign. This is a user-reported smoke check, not comprehensive validation or measured retrieval quality; the offline test verifies tool orchestration, not model judgment.
+
+## Optional Calendar/email actions in the local web chat
+
+The chat can prepare an event from your request, clarify missing title/start/end/email,
+and show all fields before **Confirmar y enviar**. No default duration or service catalog
+is assumed. Relative dates use the server clock in Argentina. Document Q&A is unchanged.
+
+1. Obtain the existing n8n webhook Header Auth key securely from its owner. Do not paste it into chat.
+2. Run `.venv/bin/python configurar_n8n.py` locally. Its hidden prompt creates ignored,
+   owner-only `.env.n8n`; it never sends an action or reads an existing secret.
+3. Restart the chat, request your event, review title, dates, offset and recipient, then
+   confirm or cancel with the buttons. Until the key is configured, actions fail closed.
+
+The configuration uses `N8N_WEBHOOK_KEY` and `N8N_WEBHOOK_URL` (also supported as process
+environment variables). The URL is pinned to the existing authenticated n8n webhook;
+changing the destination requires a deliberate source change. No secret is sent to Gemini.
+Recipient email is masked locally before model calls and sent to n8n only on confirmation.
+Other user-provided title/date text does reach Gemini: do not include confidential details.
+
+Only an in-memory action draft/clarification context is retained, isolated by browser cookie,
+for up to 20 minutes of inactivity (128-session bound). Tabs in the same browser share that
+session; a restart discards it. A new question after a complete proposal clears all of that
+proposal’s fields, recipient and confirmation; provide the full replacement request. The action
+payload is immutable at confirmation: the browser sends only its ID and confirm/cancel choice.
+Double confirmation does not resend. Network uncertainty and partial email failure have no
+automatic retries; inspect Calendar/n8n before creating another request. Restarting loses
+this local duplicate guard, so it is not durable cross-session idempotency.
+
+Success requires the workflow's explicit outcome and event/email IDs, not just HTTP 200.
+Email accepted by the provider does not prove inbox delivery. The workflow must be active
+and its Calendar/email credentials valid. Availability/conflict checks, production access,
+durable idempotency, systematic model/date evaluation and assignment evaluation/report remain
+out of scope. This is a partially operational action prototype, not a completed assignment.
 
 ## Cost and privacy boundaries
 
@@ -89,7 +122,7 @@ Chunks target 100 tokenizer tokens with 15-token overlap, below the embedding mo
 
 Calendar browsing returns every matching record, not four arbitrary hits. Source conflicts remain in one complete evidence unit; undated events remain undated. Calendar event titles do not automatically establish that classes are suspended. The model must interpret explicit evidence rather than assume this.
 
-The four assignment deliverables remain: use-case/system-prompt/model design; Python/LangChain document RAG; LLM intent/date extraction and n8n Calendar/email actions; retrieval Precision/Recall experiments and a final architecture/results report. This prototype addresses only an initial slice of document Q&A. Career scope, authoritative corpus/versioning, actions, final storage and deployment remain open. An existing Pi5 runs n8n and is optional infrastructure; no connection is made here.
+The four assignment deliverables remain: use-case/system-prompt/model design; Python/LangChain document RAG; LLM intent/date extraction and n8n Calendar/email actions; retrieval Precision/Recall experiments and a final architecture/results report. This prototype addresses document Q&A and a confirmed Calendar/email action slice in the local web chat. Career scope, authoritative corpus/versioning, availability rules, final storage and deployment remain open. The action uses the existing n8n instance; local webhook-key configuration is required.
 
 ## Record the experiment
 

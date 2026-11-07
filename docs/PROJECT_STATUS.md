@@ -1,6 +1,6 @@
 # Project status and team handoff
 
-**As of 2026-11-05: a local document-Q&A prototype with a curated 2026 calendar, not the completed assignment.** Three real Gemini questions ran successfully after adding calendar and fee documents. The calendar now has 102 visually curated event records and offline regression tests. The full corpus, semantic retrieval, generated answers and retrieval metrics have not been systematically validated.
+**As of 2026-11-06: a local document-Q&A and confirmed Calendar/email action prototype with a curated 2026 calendar, not the completed assignment.** Three real Gemini questions ran successfully after adding calendar and fee documents. The calendar now has 102 visually curated event records and offline regression tests. The full corpus, semantic retrieval, generated answers and retrieval metrics have not been systematically validated.
 
 Start with [README.md](../README.md) for installation and commands. This document records current scope, gaps and next work so teammates can continue without the original chat.
 
@@ -33,7 +33,7 @@ PDF text extraction / local OCR + validated curated calendar
 - `--inspect`: extraction/coverage report, no Gemini. Blank-extraction pages may invoke OCR; local-only files are labeled.
 - `--retrieve-only`: searches all locally indexed files, including local-only manuals and raw calendars; no Gemini key needed.
 - Default mode or `--question`: filters out local-only files before top-k retrieval, then uses the same bounded native-tool runner as the web UI and displays stable source IDs. Gemini chooses semantic document searches or complete calendar browsing by year/date, with one opportunity to refine retrieval before its final answer. A final context guard rejects local-only evidence.
-- No conversational memory, reservation, webhook, Calendar or email action is implemented.
+- The web chat adds bounded action clarification state and native LLM event proposals, explicit confirm/cancel, and an authenticated n8n webhook for Calendar/email. The CLI stays document-only. The development machine is configured; new installations require local webhook-key setup. No general conversational memory is added.
 
 The code is the source of truth for settings. Current guards include a 128-token semantic-tool-query limit, 100-token chunks with 15-token overlap, an 8000-character cap per PDF evidence page, and a cumulative 160,000-character serialized evidence budget. Calendar records are complete, including all conflicting variants. Broad calendar browsing is not top-k limited: all 102 records currently fit (97,864 serialized characters). Coverage counts and explicit truncation warnings accompany tool results. Each question can use at most three Gemini calls, three tools per retrieval round, and 4096 output tokens; there is no automatic retry or paid fallback. This uses more shared Free-tier quota than the old one-call pipeline. A similarity score is not answer confidence or Precision/Recall. Nearest-neighbor retrieval can return irrelevant material; the prompt's refusal/citation instructions are not guarantees.
 
@@ -69,10 +69,12 @@ Do not copy temporary run logs into Git. Repeat the examples from the README or 
 | --- | --- | --- |
 | 1. Conception/design | Partial: university domain, prototype prompt and provisional model exist. | Agree users/careers/campus, supported questions and exclusions; document business rules, output/limits and model choice rationale. |
 | 2. Private knowledge/RAG | Prototype: full local corpus extraction/OCR, local embeddings and privacy-filtered retrieval work. | Review remaining OCR/tables and authoritative source versions; obtain institutional clarification of preserved calendar differences; assess missing material, chunking and citation quality. Final storage is undecided. |
-| 3. Actions/n8n | Not implemented in this app. Existing n8n availability is not an integration. | Define the university appointment service, calendar owner and availability; implement the full confirmed action flow below. |
+| 3. Actions/n8n | Partial: configured local chat integration; user-reported live booking and email smoke check succeeded. | Systematically validate intent/date extraction and failures. Availability/conflict policy and durable cross-session idempotency are not implemented. |
 | 4. Evaluation/report/deployment | Not implemented. Three smoke questions are not evaluation. | Labeled relevance set, Precision/Recall measurements, controlled experiments, architecture/development/results report and deployment decisions. |
 
-For Phase 3, the proposed flow is: LLM extracts intent/date → clarify missing fields and resolve relative dates/timezone → check availability and get explicit user confirmation → authenticated webhook → Calendar and confirmation email → verify actual booking/delivery outcomes before reporting success. Agree required data, conflict handling, duplicate requests and failure behavior first. HTTP 200 from n8n alone does not prove either action completed.
+For Phase 3, the implemented web flow is: LLM proposes user-provided title/start/end → local missing-field clarification and recipient capture → explicit UI confirmation → authenticated webhook → explicit Calendar/email outcome validation. Relative dates use the Argentina server clock. No fixed duration, catalog or opening hours are imposed. Recipient email is masked before Gemini. Single-use in-memory confirmation prevents double-click resend; timeouts and partial failures never automatically retry. Provider email acceptance is not inbox delivery. Availability/conflict checks and durable idempotency remain open. See README for local hidden-key setup; HTTP 200 alone is not success. Offline fake-model/HTTP tests do not validate real Gemini action selection or end-to-end deployment.
+
+On 2026-11-06, the user reported that a live chat booking preserved the requested times and recipient, missing-field clarification worked, and the confirmation email was received. The user also approved a grounded administrative answer directing them to Autogestión/MiAtlántida. These are user-reported smoke checks, not formal evaluation or proof of general correctness. Events in the project calendar do not establish official Administration availability; no student/nonstudent routing or institutional appointment policy is inferred.
 
 For Phase 4, label relevant evidence using stable source/page or text spans, not chunk IDs that change between experiments. Measure retriever Precision/Recall at a declared `k` with a clear relevance rule. Compare extraction/chunking/retrieval configurations separately from temperature/answer-generation experiments: temperature does not change retrieval metrics in this pipeline. Preserve the questions, configuration and results for the final report.
 
@@ -81,7 +83,7 @@ For Phase 4, label relevant evidence using stable source/page or text spans, not
 1. Agree the first user/career/campus slice and identify which source versions are authoritative.
 2. Validate calendar semantic retrieval with labeled date/campus/unknown/conflict questions, then review remaining OCR pages and key tables. Seek authoritative clarification rather than guessing conflicting dates. The supplied calendar sources are visually reviewed; other OCR remains unverified.
 3. Run a small reproducible retrieval evaluation, then decide whether improved extraction, different chunking or retrieval changes are needed. Rebuild the index after data changes.
-4. Define and implement one appointment action end to end with n8n, including confirmation and outcome verification.
+4. Extend controlled action validation beyond the reported smoke check, and decide availability/conflict and durable duplicate handling without inventing university rules. Configure the local webhook key on each new installation.
 5. Decide production deployment and access controls (a basic localhost web interface already exists); keep keys server-side. Complete architecture and results documentation alongside the experiments.
 
 ## Safe continuation for teammates and agents
