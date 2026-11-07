@@ -14,15 +14,52 @@ HTML = r'''<!doctype html>
 <html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Asistente universitario</title>
 <style>
-:root{color-scheme:light}body{font:16px/1.6 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:oklch(98% .005 250);color:oklch(24% .01 250);max-width:740px;margin:48px auto;padding:0 20px}h1{font-size:1.7rem;line-height:1.2}textarea{box-sizing:border-box;width:100%;font:inherit;padding:12px;border:1px solid oklch(75% .01 250);border-radius:6px;resize:vertical}button{font:inherit;padding:9px 20px;background:oklch(42% .14 255);color:oklch(99% .005 250);border:0;border-radius:6px;cursor:pointer}button:hover{background:oklch(35% .14 255)}button:disabled{opacity:.6;cursor:wait}:focus-visible{outline:3px solid oklch(65% .15 255);outline-offset:3px}small,.note{color:oklch(43% .01 250)}#answer{overflow-wrap:anywhere}#answer p{margin:.7em 0}#answer h1,#answer h2,#answer h3{margin:1em 0 .4em;line-height:1.3}#answer h1{font-size:1.5rem}#answer h2{font-size:1.3rem}#answer h3{font-size:1.1rem}#answer ul,#answer ol{padding-left:1.5em}#answer code{font-family:ui-monospace,monospace;background:oklch(94% .005 250);padding:.1em .25em;border-radius:3px}#answer pre{background:oklch(94% .005 250);padding:12px;overflow-x:auto}#answer pre code{padding:0}#answer blockquote{margin:1em 0;padding:8px 12px;background:oklch(95% .005 250)}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 system-ui}details{margin:16px 0;border-top:1px solid oklch(85% .01 250);padding-top:10px}summary{cursor:pointer}#status{min-height:1.6em}
+/* Quiet daytime reading surface, with one restrained action color. */
+:root{color-scheme:light;--page:oklch(97.5% .006 165);--surface:oklch(99.5% .003 165);--ink:oklch(25% .014 165);--muted:oklch(45% .016 165);--line:oklch(86% .014 165);--accent:oklch(39% .075 165);--soft:oklch(94% .018 165)}
+*{box-sizing:border-box}
+body{max-width:800px;margin:0 auto;padding:40px 28px 32px;background:var(--page);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:1.25rem;line-height:1.3;letter-spacing:-.025em;font-weight:650}
+.badge{font-size:.875rem;color:var(--muted);white-space:nowrap}
+.intro{margin:36px 0 24px}.intro h2{margin:0 0 8px;font-size:1.75rem;line-height:1.25;letter-spacing:-.035em;font-weight:600}
+.note{color:var(--muted);margin:0;max-width:65ch}
+label{display:block;margin-bottom:8px;font-size:.875rem;font-weight:600}
+.composer{padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px oklch(25% .014 165 / .035)}
+.composer:focus-within{border-color:var(--accent)}
+textarea{display:block;width:100%;font:inherit;resize:vertical;min-height:100px;border:0;border-radius:4px;background:transparent;color:var(--ink);padding:0 2px}
+textarea::placeholder{color:var(--muted);opacity:1}
+.composer-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.hint{font-size:.875rem;color:var(--muted)}
+button{font:inherit;cursor:pointer;min-height:44px;flex-shrink:0;font-size:.9375rem;font-weight:600;padding:10px 20px;background:var(--accent);color:var(--surface);border:1px solid transparent;border-radius:9px;transition:background-color 160ms ease-out,transform 160ms ease-out}
+button:hover{background:oklch(32% .075 165)}button:active:not(:disabled){transform:translateY(1px)}
+button:disabled{opacity:.55;cursor:wait}button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}button.secondary:hover{background:var(--soft)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+#status{min-height:1.65em;margin:16px 0;font-size:.875rem;color:var(--muted)}
+#status[data-state="error"]{color:oklch(43% .14 28)}#status[data-state="success"]{color:var(--accent)}#status[data-state="loading"]{color:var(--accent);font-weight:600}
+#response{margin:28px 0 36px}.section-label{margin:0 0 16px;font-size:.875rem;font-weight:650;color:var(--muted)}
+#answer{max-width:70ch;overflow-wrap:anywhere}#answer p{margin:.8em 0}#answer h1,#answer h2,#answer h3{margin:1.4em 0 .5em;line-height:1.3}#answer h1{font-size:1.5rem}#answer h2{font-size:1.25rem}#answer h3{font-size:1.125rem}#answer code{font-family:ui-monospace,monospace;font-size:.9em;padding:.15em .3em;border-radius:4px}#answer pre{overflow-x:auto}#answer pre code{padding:0}#answer blockquote{margin:1em 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 system-ui}#answer>:first-child{margin-top:0}#answer li{margin:.35em 0}
+#answer code,#answer pre,#answer blockquote{background:var(--soft)}#answer pre,#answer blockquote{padding:12px 16px;border-radius:8px}
+#sources:not(:empty){margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}#sources h3{margin:0 0 8px;font-size:.875rem;color:var(--muted)}
+details{margin:0;border:0;border-bottom:1px solid var(--line);padding:0}
+summary{padding:12px 4px;min-height:44px;font-size:.875rem;overflow-wrap:anywhere}summary:hover{color:var(--accent)}
+details pre{margin:0;padding:4px 4px 16px;color:var(--muted)}
+#action:not(:empty){margin:24px 0;padding:20px;background:var(--soft);border:1px solid var(--line);border-radius:12px}
+#action h2{font-size:1.125rem;line-height:1.3;margin:0 0 8px}#action p{font-size:.875rem;color:var(--muted);margin:0 0 16px}
+#action dl{margin:0 0 20px;display:grid;grid-template-columns:70px minmax(0,1fr);gap:8px 16px;font-size:.9375rem}
+#action dt{color:var(--muted)}#action dd{margin:0;overflow-wrap:anywhere}.action-buttons{display:flex;flex-wrap:wrap;gap:12px}
+footer{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}footer p{margin:0 0 12px}footer details{border:0}footer summary{padding-left:0}
+@media(max-width:540px){body{padding:24px 20px}header{align-items:flex-start;gap:8px;flex-direction:column}.intro{margin-top:28px}.intro h2{font-size:1.5rem}.composer-footer{align-items:flex-start;flex-direction:column;gap:12px}.composer-footer button{align-self:flex-end}}
+@media(prefers-reduced-motion:reduce){button{transition:none;transform:none!important}}
 </style>
-<h1>Asistente universitario</h1>
-<p class="note">Busca en los documentos locales y responde con Gemini. Prototipo, no información oficial.</p>
-<form id="form"><label for="question">Tu pregunta</label><textarea id="question" rows="3" maxlength="2000" required placeholder="¿Cuándo son los exámenes finales de diciembre de 2026?"></textarea><button id="send">Preguntar</button></form>
-<p id="status" role="status" aria-live="polite"></p>
+<header><h1>Asistente universitario</h1><span class="badge">UAA · Prototipo local</span></header>
+<main>
+<div class="intro"><h2>¿Qué necesitás consultar?</h2><p class="note">Consultá fechas, trámites y documentos de la universidad, con fuentes para revisar.</p></div>
+<form id="form"><label for="question">Tu pregunta</label><div class="composer"><textarea id="question" rows="3" maxlength="2000" required aria-describedby="question-hint" placeholder="¿Cuándo son los exámenes finales de diciembre de 2026?"></textarea><div class="composer-footer"><span class="hint" id="question-hint">Una consulta a la vez, hasta 2000 caracteres.</span><button id="send">Preguntar</button></div></div></form>
+<p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
 <div id="action" aria-live="polite"></div>
-<section aria-label="Respuesta"><div id="answer"></div><div id="sources"></div></section>
-<small>La primera pregunta prepara el índice y puede tardar. Solo se envían a Gemini la pregunta y los fragmentos permitidos. Las preguntas documentales son independientes. Los datos de un evento se conservan solo para aclararlo y confirmarlo (20 minutos). El correo destinatario queda local hasta confirmar su envío a n8n.</small>
+<section id="response" aria-label="Respuesta" hidden><h2 class="section-label">Respuesta</h2><div id="answer"></div><div id="sources"></div></section>
+</main>
+<footer><p>Prototipo, no información oficial. Verificá las fuentes antes de tomar una decisión.</p><details><summary>Cómo funciona y qué datos se envían</summary><p>Busca en los documentos locales y responde con Gemini. La primera pregunta prepara el índice y puede tardar. Solo se envían a Gemini la pregunta y los fragmentos permitidos. Las preguntas documentales son independientes.</p><p>Los datos de un evento se conservan solo para aclararlo y confirmarlo (20 minutos). El correo destinatario queda local hasta confirmar su envío a n8n.</p></details></footer>
 <script>
 const form=document.getElementById('form'),q=document.getElementById('question'),button=document.getElementById('send'),status=document.getElementById('status'),answer=document.getElementById('answer'),sources=document.getElementById('sources');
 // Small local Markdown renderer: all model text becomes text nodes, never HTML.
@@ -39,16 +76,24 @@ function inlineMarkdown(parent,text){
 }
 function showAction(pending){
   const box=document.getElementById('action');box.replaceChildren();if(!pending)return;
-  const summary=document.createElement('pre');summary.textContent='Evento: '+pending.title+'\nInicio: '+pending.start+'\nFin: '+pending.end+'\nCorreo: '+pending.email;box.append(summary);
+  const heading=document.createElement('h2');heading.textContent='Revisá el evento antes de enviar';
+  const note=document.createElement('p');note.textContent='Solo se enviará a n8n si confirmás. Esto no implica una reserva institucional.';
+  const summary=document.createElement('dl');
+  const dateLabel=value=>{const date=new Date(value);return Number.isNaN(date.getTime())?String(value):new Intl.DateTimeFormat('es-AR',{dateStyle:'medium',timeStyle:'short',timeZone:'America/Argentina/Buenos_Aires'}).format(date)+' (Argentina)'};
+  for(const [label,value] of [['Evento',pending.title],['Inicio',dateLabel(pending.start)],['Fin',dateLabel(pending.end)],['Correo',pending.email]]){
+    const term=document.createElement('dt'),detail=document.createElement('dd');term.textContent=label;detail.textContent=value;summary.append(term,detail);
+  }
+  const actions=document.createElement('div');actions.className='action-buttons';box.append(heading,note,summary,actions);
   for(const [label,confirm] of [['Confirmar y enviar',true],['Cancelar',false]]){
-    const b=document.createElement('button');b.type='button';b.textContent=label;b.style.marginRight='12px';box.append(b);
-    b.onclick=async()=>{for(const x of box.querySelectorAll('button'))x.disabled=true;button.disabled=true;
-      try{const r=await fetch('/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:pending.id,confirm})});const data=await r.json();renderMarkdown(data.answer||data.error);box.replaceChildren();status.textContent='';}
-      catch{status.textContent='Resultado incierto. No repitas la solicitud; revisá Calendar/n8n.';}
+    const b=document.createElement('button');b.type='button';b.textContent=label;if(!confirm)b.className='secondary';actions.append(b);
+    b.onclick=async()=>{for(const x of box.querySelectorAll('button'))x.disabled=true;button.disabled=true;status.dataset.state='loading';status.textContent=confirm?'Enviando evento…':'Cancelando evento…';
+      try{const r=await fetch('/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:pending.id,confirm})});const data=await r.json();renderMarkdown(data.answer||data.error);box.replaceChildren();status.dataset.state=data.error?'error':'neutral';status.textContent=data.error?'No se pudo completar la acción.':'Revisá el resultado de la solicitud.';}
+      catch{status.dataset.state='error';status.textContent='Resultado incierto. No repitas la solicitud; revisá Calendar/n8n.';}
       finally{button.disabled=false;}};
   }
 }
 function renderMarkdown(text){
+  document.getElementById('response').hidden=false;
   answer.replaceChildren();const lines=String(text).replace(/\r\n?/g,'\n').split('\n');
   let paragraph=null,list=null,listType=null;
   function reset(){paragraph=null;list=null;listType=null}
@@ -76,7 +121,7 @@ function renderMarkdown(text){
     inlineMarkdown(paragraph,line);
   }
 }
-form.addEventListener('submit',async e=>{e.preventDefault();const question=q.value.trim();if(!question)return;button.disabled=true;status.textContent='Buscando y preparando la respuesta… La primera consulta puede tardar más.';answer.textContent='';sources.replaceChildren();showAction(null);try{const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});const data=await r.json();if(!r.ok)throw new Error(data.error||'No se pudo responder.');renderMarkdown(data.answer);showAction(data.pending);for(const source of data.sources){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('pre');s.textContent='['+source.id+'] '+source.source+(source.page?' · página '+source.page:'')+(source.record_id?' · '+source.record_id:'');p.textContent=source.text+(source.evidence.length?'\n\nProcedencia: '+JSON.stringify(source.evidence,null,2):'');d.append(s,p);sources.append(d)}status.textContent='Listo.'}catch(error){status.textContent=error.message||'No se pudo conectar con el servidor local.'}finally{button.disabled=false}});
+form.addEventListener('submit',async e=>{e.preventDefault();const question=q.value.trim();if(!question)return;button.disabled=true;button.textContent='Consultando…';form.setAttribute('aria-busy','true');status.dataset.state='loading';status.textContent='Buscando y preparando la respuesta… La primera consulta puede tardar más.';answer.textContent='';document.getElementById('response').hidden=true;sources.replaceChildren();showAction(null);try{const r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});const data=await r.json();if(!r.ok)throw new Error(data.error||'No se pudo responder.');renderMarkdown(data.answer);showAction(data.pending);if(data.sources.length){const title=document.createElement('h3');title.textContent='Fuentes consultadas · '+data.sources.length;sources.append(title)}for(const source of data.sources){const d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('pre');s.textContent='['+source.id+'] '+source.source+(source.page?' · página '+source.page:'')+(source.record_id?' · '+source.record_id:'');p.textContent=source.text+(source.evidence.length?'\n\nProcedencia: '+JSON.stringify(source.evidence,null,2):'');d.append(s,p);sources.append(d)}status.dataset.state='success';status.textContent=data.pending?'Revisá el evento y confirmá si querés enviarlo.':'Respuesta lista. Podés revisar las fuentes o hacer otra consulta.'}catch(error){status.dataset.state='error';status.textContent=error.message||'No se pudo conectar con el servidor local.'}finally{button.disabled=false;button.textContent='Preguntar';form.removeAttribute('aria-busy')}});
 </script></html>'''
 
 
