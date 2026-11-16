@@ -58,4 +58,3 @@ RR 435/26 describes November 9 suspension in all campuses (Mar de Ajó, Mar del 
 1. Have the team/university confirm the unresolved differences and applicable source versions.
 2. Run labeled semantic-retrieval questions for dates, campus restrictions, unknown dates and unsupported questions. Measure evidence recall before tuning prompts/models.
 3. If separately authorized, test Gemini answers and citations against the actual retrieved records; unit tests alone do not establish answer correctness.
-4. Continue the assignment's action/n8n flow and evaluation/report work described in [PROJECT_STATUS.md](PROJECT_STATUS.md). No action integration or publication occurred in this calendar task.
