@@ -22,6 +22,18 @@ python3.12 -m venv .venv
 
 El primer comando muestra qué documentos y registros de calendario se pudieron leer. Los dos comandos se ejecutan sin Gemini ni n8n.
 
+## Si usa Windows
+
+El chat completo requiere macOS para leer los PDF escaneados. En Windows, la página puede abrirse, pero la primera consulta puede fallar al procesar esos archivos.
+
+Con Python 3.12, puede inspeccionar los 102 registros del calendario desde la carpeta del repositorio, sin instalar dependencias ni configurar una clave:
+
+```powershell
+py -3.12 -X utf8 prototype_rag.py --calendar-only --inspect
+```
+
+Este comando no abre el chat ni llama a Gemini. Para ver ejemplos de respuestas y sus fuentes, consulte las capturas del [informe final](docs/IA2-Informe-Final.pdf).
+
 ## Probar el chat
 
 1. Si todavía no existe, copie `.env.example` a `.env`. En ese archivo, configure `GOOGLE_API_KEY` con una clave propia de un proyecto de Gemini sin facturación habilitada. Marque `FREE_TIER_CONFIRMED=true` y `ALLOW_DOCUMENT_SNIPPETS=true` únicamente si verificó que el proyecto usa el nivel gratuito y está autorizado a enviar fragmentos de los documentos a Gemini. No suba `.env` al repositorio.
