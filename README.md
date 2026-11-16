@@ -4,6 +4,15 @@
 
 For team onboarding, current decisions, assignment gaps and next tasks, read [Project status and team handoff](docs/PROJECT_STATUS.md).
 
+## Final submission
+
+- [Final project report (PDF, Spanish)](docs/IA2-Informe-Final.pdf)
+- [ChromaDB evaluation and reproduction instructions](evaluation/README.md)
+- [Historical in-memory retrieval experiment](evaluation/ia2-evaluacion-rag.zip)
+- [Historical Gemini temperature experiment](evaluation/ia2-temperatura-gemini.zip)
+
+The report covers the local prototype and includes screenshots of the chat and automation. Reviewing the code does not require access to the n8n instance.
+
 ## Quick start
 
 Double-click **Abrir asistente.command** to open the local chat at `http://127.0.0.1:8765` once the environment below is installed. Keep its Terminal window open. Opening the page does not call Gemini; submitting a question does.
