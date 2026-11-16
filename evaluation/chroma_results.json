@@ -1,0 +1,653 @@
+{
+  "gold_sha256": "1f8e7b5d5b22215c8cc49209521170ec073295f9992e1f2b38152429f46a4663",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "software": {
+    "chromadb": "1.5.9",
+    "torch": "2.15.0",
+    "langchain-core": "1.7.5",
+    "langchain-huggingface": "1.2.3",
+    "langchain-text-splitters": "1.1.3",
+    "sentence-transformers": "6.2.0",
+    "transformers": "5.22.1",
+    "tokenizers": "0.23.3",
+    "pypdf": "6.21.4"
+  },
+  "units": {
+    "pdfs": 19,
+    "pdf_pages": 97,
+    "ocr_unverified": 40,
+    "calendar_records": 102,
+    "questions": 10
+  },
+  "indexed_source_sha256": {
+    "Aranceles_vigentes_SEP2026_MDP.pdf": "74379cc71750170abcb9a877986412e28c4d1d7407b58febd7d48ff271b6f37d",
+    "CorrelativasLicInformatica.pdf": "559867ca92ba763d158cf73be958becee7cf355243f7f061b1910749b594bcaa",
+    "DSA_13_22_COMUNICACION_EN_AULAS_VIRTUALES.pdf": "c299821beaabc3e4ee55dc8778403ff17154d592675ea13b8300ba1bdcf1330b",
+    "DSA_27_22_DURACION_REGULARIDAD.pdf": "4b063771029d66898bb2cf09528f146defe296427e79a16b9226ad2690cd1a4a",
+    "DSA_33_23_llamado_especial_octubre_2023.pdf": "d3a379b537c28b003eb6f2876047b0bd3fd5505dd3a18822c72aa8807e86f4c2",
+    "Informacion_Basica_Administracion.pdf": "223c4bf44811e444f3d275da2451f1b540c070bb673c9e3466fb32f2451ca7e9",
+    "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf": "b5a54c052f3003816cdf655bf317e8b763634b333af78e737f31a0d15fc8475c",
+    "RCS 32_22ProtocolodeGenero.pdf": "b9bb67e23a0f8a41270ba16cd5e81438cf3f29fe4224ae61c6a5d5168e83b00a",
+    "RCS_10_20_Cat_Finales.pdf": "ff742485003f6d5e3a8259d8365f36b0b1656db6add7da99c2f95b7a3c57933f",
+    "RR_ 231_25 LINEAMIENTOS_IAs.pdf": "f6ad9163751f032686a7b954ae9d7fc7f3f2b70e8dcf090c291921f73a7d0266",
+    "RR_274_22_FINALES_REMOTOS.pdf": "ac1f019093cffa74cbee0cbda1c9392fedcb3d596a2faf2dca8c97cd57ea3134",
+    "RR_3_25_Idiomas_Ingresantes.pdf": "979f910f8a5b917d8d835391b69a6f468e04906071b11f18a3527e9b2405c36a",
+    "TerminosyCondicionesAcademica.pdf": "837d4f43a31f9195e0827b5ca2ed189ea64e467d921279509d7e7a23d3b0b2ad",
+    "TerminosyCondicionesAutogestion.pdf": "6b0e66564c6ca89a44a4c60e46061fbe7fd0bf9f5054625eed96ccc23ad8fea2",
+    "materias_promocionales.pdf": "9bdca1dc6bee4709eecee08a38057d631c8fa89f14dfd2129dece158f76dad8f",
+    "medios_electronicos.pdf": "7acb210a4e1fe62b5dcea38534bf139a7715c1f6ed290a4ce60b90d0543fd25c",
+    "planDeEstudioLicInformatica.pdf": "671c27c2fe1b9b87c88d30384587beaeb6b1f4f1951b3f804c4bb93ba8954377",
+    "reglamento_de_alumnos.pdf": "9a328009e759901527535031749b903f1b1237b39ca69cdf5c0b75b51213e21b",
+    "resolucion_materias_promocionales.pdf": "80461048e847e705b479942d0188ff45fcb0fdfb6ad4aff1396e0d901b5b297e",
+    "knowledge/calendar_2026.json": "d162be2fe6e594e0e7033de5f1e040d2c14f1efa833289e6a07295cde788931b"
+  },
+  "duplicate_sources": {
+    "TyC_Finales2023_2.pdf": "DSA_33_23_llamado_especial_octubre_2023.pdf"
+  },
+  "ocr_cache_sha256": {
+    "DSA_33_23_llamado_especial_octubre_2023.pdf": "643d393ff50ee9905a63ac3625a0c9812b4babff6ed08e2bbcb1ba09689120ec",
+    "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf": "933cbf8a1564445a4d4f6eb41536740f0a751f638b84aa95284c8af2ce81b482",
+    "RCS 32_22ProtocolodeGenero.pdf": "00bd1640077ce3bd1952f76893e604a5565f2c732f4fa695f8ab924c150a9ea9",
+    "RR_274_22_FINALES_REMOTOS.pdf": "71beafbbb4d5216025f692c660011c4f4c42677a30e35b6c6ee81a23db061455",
+    "RR_3_25_Idiomas_Ingresantes.pdf": "5dc24354d084194e74485e4cf41cde7d207a6ffaa9f9481d4a7feeef0f99dd80",
+    "resolucion_materias_promocionales.pdf": "00a86f420c3e647663115027ec140005df768666f7bcc8437b54db5247b29d25"
+  },
+  "protocol": "Fixed questions, top 24 cosine chunks, deduplicated by evidence unit; macro P/R@3 and @5.",
+  "in_memory_baseline": {
+    "100/15": {
+      "chunks": 707,
+      "p3": 0.2,
+      "r3": 0.6,
+      "p5": 0.12,
+      "r5": 0.6
+    },
+    "60/15": {
+      "chunks": 1266,
+      "p3": 0.26666666666666666,
+      "r3": 0.75,
+      "p5": 0.16,
+      "r5": 0.75
+    }
+  },
+  "chroma": {
+    "100/15": {
+      "chunks": 707,
+      "p3": 0.19999999999999998,
+      "p5": 0.12000000000000001,
+      "r3": 0.6,
+      "r5": 0.6,
+      "queries": [
+        {
+          "id": "admin-balance",
+          "top5": [
+            [
+              "medios_electronicos.pdf",
+              4
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              7
+            ],
+            [
+              "TerminosyCondicionesAcademica.pdf",
+              4
+            ],
+            [
+              "Aranceles_vigentes_SEP2026_MDP.pdf",
+              1
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "early-payment",
+          "top5": [
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              5
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              6
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              3
+            ],
+            [
+              "Aranceles_vigentes_SEP2026_MDP.pdf",
+              1
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "course-extension",
+          "top5": [
+            [
+              "reglamento_de_alumnos.pdf",
+              4
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              14
+            ],
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              13
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              9
+            ]
+          ],
+          "labels": 1,
+          "hits3": 0,
+          "hits5": 0
+        },
+        {
+          "id": "teacher-channel",
+          "top5": [
+            [
+              "DSA_13_22_COMUNICACION_EN_AULAS_VIRTUALES.pdf",
+              1
+            ],
+            [
+              "RR_274_22_FINALES_REMOTOS.pdf",
+              1
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              4
+            ],
+            [
+              "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf",
+              5
+            ],
+            [
+              "DSA_33_23_llamado_especial_octubre_2023.pdf",
+              3
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "attendance-exception",
+          "top5": [
+            [
+              "reglamento_de_alumnos.pdf",
+              4
+            ],
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              13
+            ],
+            [
+              "TerminosyCondicionesAcademica.pdf",
+              4
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              3
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              6
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "prerequisites",
+          "top5": [
+            [
+              "materias_promocionales.pdf",
+              1
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              3
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              1
+            ],
+            [
+              "CorrelativasLicInformatica.pdf",
+              4
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              2
+            ]
+          ],
+          "labels": 1,
+          "hits3": 0,
+          "hits5": 0
+        },
+        {
+          "id": "ai-disclosure",
+          "top5": [
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              3
+            ],
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              1
+            ],
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              2
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              15
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              1
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "july-conflict",
+          "top5": [
+            [
+              "knowledge/calendar_2026.json",
+              "finals-july"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-feb"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-feb-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-dec-registration"
+            ]
+          ],
+          "labels": 1,
+          "hits3": 0,
+          "hits5": 0
+        },
+        {
+          "id": "october-exams",
+          "top5": [
+            [
+              "DSA_33_23_llamado_especial_octubre_2023.pdf",
+              1
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-finals"
+            ],
+            [
+              "DSA_33_23_llamado_especial_octubre_2023.pdf",
+              2
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "nonregular-july-deadline"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-july"
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "december-two-facts",
+          "top5": [
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-finals"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "nonregular-dec-deadline"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-feb-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-feb"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-july"
+            ]
+          ],
+          "labels": 2,
+          "hits3": 0,
+          "hits5": 0
+        }
+      ]
+    },
+    "60/15": {
+      "chunks": 1266,
+      "p3": 0.26666666666666666,
+      "p5": 0.18000000000000002,
+      "r3": 0.75,
+      "r5": 0.85,
+      "queries": [
+        {
+          "id": "admin-balance",
+          "top5": [
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              7
+            ],
+            [
+              "medios_electronicos.pdf",
+              4
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              2
+            ],
+            [
+              "TerminosyCondicionesAcademica.pdf",
+              6
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "early-payment",
+          "top5": [
+            [
+              "Informacion_Basica_Administracion.pdf",
+              6
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              5
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              4
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              3
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "course-extension",
+          "top5": [
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              14
+            ],
+            [
+              "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf",
+              2
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              4
+            ],
+            [
+              "Informacion_Basica_Administracion.pdf",
+              8
+            ],
+            [
+              "reglamento_de_alumnos.pdf",
+              9
+            ]
+          ],
+          "labels": 1,
+          "hits3": 0,
+          "hits5": 0
+        },
+        {
+          "id": "teacher-channel",
+          "top5": [
+            [
+              "TerminosyCondicionesAutogestion.pdf",
+              1
+            ],
+            [
+              "DSA_13_22_COMUNICACION_EN_AULAS_VIRTUALES.pdf",
+              1
+            ],
+            [
+              "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf",
+              4
+            ],
+            [
+              "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf",
+              8
+            ],
+            [
+              "RCS 27_25 MODIFICA REGLAMENTO DE MOVILIDAD ESTUDIANTIL.pdf",
+              2
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "attendance-exception",
+          "top5": [
+            [
+              "reglamento_de_alumnos.pdf",
+              4
+            ],
+            [
+              "RCS_10_20_Cat_Finales.pdf",
+              2
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "conditional-first-exceptions"
+            ],
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              11
+            ],
+            [
+              "RCS 32_22ProtocolodeGenero.pdf",
+              13
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "prerequisites",
+          "top5": [
+            [
+              "planDeEstudioLicInformatica.pdf",
+              2
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              3
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              1
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              4
+            ],
+            [
+              "CorrelativasLicInformatica.pdf",
+              1
+            ]
+          ],
+          "labels": 1,
+          "hits3": 0,
+          "hits5": 1
+        },
+        {
+          "id": "ai-disclosure",
+          "top5": [
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              3
+            ],
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              1
+            ],
+            [
+              "RR_ 231_25 LINEAMIENTOS_IAs.pdf",
+              2
+            ],
+            [
+              "DSA_27_22_DURACION_REGULARIDAD.pdf",
+              1
+            ],
+            [
+              "planDeEstudioLicInformatica.pdf",
+              2
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "july-conflict",
+          "top5": [
+            [
+              "knowledge/calendar_2026.json",
+              "regular-july-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-dec-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "extension-results-info"
+            ],
+            [
+              "DSA_27_22_DURACION_REGULARIDAD.pdf",
+              1
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "october-exams",
+          "top5": [
+            [
+              "DSA_33_23_llamado_especial_octubre_2023.pdf",
+              1
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-finals"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-july"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "survey-nov"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-feb"
+            ]
+          ],
+          "labels": 1,
+          "hits3": 1,
+          "hits5": 1
+        },
+        {
+          "id": "december-two-facts",
+          "top5": [
+            [
+              "knowledge/calendar_2026.json",
+              "nonregular-dec-deadline"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-dec-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "finals-feb"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "special-oct-registration"
+            ],
+            [
+              "knowledge/calendar_2026.json",
+              "regular-feb-registration"
+            ]
+          ],
+          "labels": 2,
+          "hits3": 1,
+          "hits5": 1
+        }
+      ]
+    }
+  }
+}

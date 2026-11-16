@@ -3,6 +3,8 @@
 
 import argparse
 import hashlib
+from importlib.metadata import version
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -10,6 +12,7 @@ import sys
 import subprocess
 
 from calendar_knowledge import CalendarDataError, validate_calendar
+from persistent_index import StaleIndexError
 from rag_tools import calendar_text
 
 ROOT = Path(__file__).resolve().parent
@@ -17,7 +20,10 @@ CORPUS = ROOT / "archivos_RAG"
 CACHE = ROOT / ".cache-prototype"
 MODEL = "gemini-3.1-flash-lite"
 EMBEDDINGS = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_REVISION = "e8f8c211226b894fcb81acc59f3b34ba3efd5f42"
 EMBEDDING_MAX_TOKENS = 128
+ENCODE_KWARGS = {"normalize_embeddings": True, "batch_size": 16}
+SPLIT_SEPARATORS = ["\n\n", "\n", ". ", " ", ""]
 # Raw calendar extraction contains stale/hidden text and unresolved annex variants.
 CALENDAR_RAW_FILES = frozenset({
     "RR 435_26 Modificaciones al Calendario Academico 2026.pdf",
@@ -84,24 +90,33 @@ def ocr_pages(path, digest, numbers):
     return cached
 
 
-def load_pages(names):
+def load_pages(names, *, manifest=None):
     """Extract text with stable source/page provenance; leave source PDFs unchanged."""
     from pypdf import PdfReader
 
     pages, report, seen = [], [], {}
+    # A byte-identical copy of a restricted PDF must not become eligible
+    # merely by sorting first under an otherwise public filename.
+    restricted_digests = {
+        hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in CORPUS.glob("*.pdf") if path.name in LOCAL_ONLY_FILES
+    }
     for name in names:
         if Path(name).name != name or not name.lower().endswith(".pdf"):
             raise PrototypeInputError("Use PDF filenames from archivos_RAG, not paths.")
         path = CORPUS / name
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        raw = path.read_bytes()
+        digest = hashlib.sha256(raw).hexdigest()
+        if manifest is not None:
+            manifest[name] = digest
         if digest in seen:
             report.append({"file": name, "duplicate_of": seen[digest]})
             continue
         seen[digest] = name
-        cloud_allowed = name not in LOCAL_ONLY_FILES
+        cloud_allowed = name not in LOCAL_ONLY_FILES and digest not in restricted_digests
         empty, failed, extracted = [], [], 0
         try:
-            reader = PdfReader(path)
+            reader = PdfReader(BytesIO(raw))
             total = len(reader.pages)
             for number, page in enumerate(reader.pages, 1):
                 try:
@@ -137,10 +152,11 @@ def load_pages(names):
     return pages, report
 
 
-def load_calendar_records():
+def load_calendar_records(*, manifest=None):
     """Load individually curated evidence units, not fabricated PDF pages."""
     try:
-        data = json.loads(CALENDAR_KNOWLEDGE.read_text(encoding="utf-8"))
+        raw = CALENDAR_KNOWLEDGE.read_bytes()
+        data = json.loads(raw.decode("utf-8"))
     except FileNotFoundError:
         raise PrototypeInputError("Curated calendar is missing: restore knowledge/calendar_2026.json.") from None
     except (json.JSONDecodeError, UnicodeDecodeError):
@@ -151,6 +167,8 @@ def load_calendar_records():
         validate_calendar(data)
     except CalendarDataError as error:
         raise PrototypeInputError(f"Curated calendar schema validation failed: {error}") from None
+    if manifest is not None:
+        manifest["knowledge/calendar_2026.json"] = hashlib.sha256(raw).hexdigest()
     records = []
     for record in data["records"]:
         text = calendar_text(record)
@@ -165,8 +183,9 @@ def load_calendar_records():
                      "coverage": data["coverage"]}
 
 
-def build_store(pages):
-    """Rebuild a scratch in-memory vector index; embeddings stay on this machine."""
+def build_store(pages, *, local_only=False, manifest=None, index_path=None,
+                chunk_size=100, chunk_overlap=15):
+    """Open the answer index, or use a disposable store for local-only inspection."""
     from langchain_core.documents import Document
     from langchain_core.vectorstores import InMemoryVectorStore
     from langchain_huggingface import HuggingFaceEmbeddings
@@ -175,31 +194,59 @@ def build_store(pages):
 
     print("Loading local multilingual embeddings (first use downloads model files).")
     tokenizer = AutoTokenizer.from_pretrained(
-        EMBEDDINGS, cache_dir=str(CACHE / "tokenizer"), trust_remote_code=False, token=False,
+        EMBEDDINGS, revision=EMBEDDING_REVISION, cache_dir=str(CACHE / "tokenizer"),
+        trust_remote_code=False, token=False,
     )
     # The model accepts 128 tokens. Keep chunks below that, including special tokens.
     splitter = RecursiveCharacterTextSplitter.from_huggingface_tokenizer(
-        tokenizer, chunk_size=100, chunk_overlap=15,
-        separators=["\n\n", "\n", ". ", " ", ""],
+        tokenizer, chunk_size=chunk_size, chunk_overlap=chunk_overlap,
+        separators=SPLIT_SEPARATORS,
     )
-    documents = [Document(page_content=p["text"],
-                          metadata={"source": p["source"], "page": p["page"],
-                                    "extraction": p["extraction"],
-                                    "cloud_allowed": p["cloud_allowed"], "kind": p.get("kind", "pdf_page"),
-                                    "record_id": p.get("record_id"), "evidence": p.get("evidence", [])})
-                 for p in pages]
-    chunks = splitter.split_documents(documents)
+
+    def make_chunks(selected):
+        return splitter.split_documents([
+            Document(page_content=p["text"], metadata=page_metadata(p)) for p in selected
+        ])
+
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDINGS, cache_folder=str(CACHE / "embeddings"),
-        model_kwargs={"device": "cpu", "trust_remote_code": False, "token": False},
-        encode_kwargs={"normalize_embeddings": True, "batch_size": 16},
+        model_kwargs={"device": "cpu", "trust_remote_code": False, "token": False,
+                      "revision": EMBEDDING_REVISION},
+        encode_kwargs=ENCODE_KWARGS,
     )
-    store = InMemoryVectorStore(embedding=embeddings)
-    store.add_documents(chunks)
-    pdf_count = sum(p.get("kind", "pdf_page") == "pdf_page" for p in pages)
-    print(f"Indexed {pdf_count} PDF pages + {len(documents) - pdf_count} curated records "
-          f"as {len(chunks)} chunks in memory.")
+    if local_only:
+        store = InMemoryVectorStore(embedding=embeddings)
+        chunks = make_chunks(pages)
+        store.add_documents(chunks)
+        print(f"Indexed {len(chunks)} chunks in memory for local inspection.")
+        return store, tokenizer
+
+    from persistent_index import PersistentAnswerIndex
+
+    config = {
+        "model": EMBEDDINGS, "revision": EMBEDDING_REVISION, "device": "cpu",
+        "encode": ENCODE_KWARGS, "max_tokens": EMBEDDING_MAX_TOKENS,
+        "split": [chunk_size, chunk_overlap, SPLIT_SEPARATORS],
+        "restricted_filenames": sorted(LOCAL_ONLY_FILES),
+        "packages": {p: version(p) for p in (
+            "chromadb", "langchain-core", "langchain-huggingface",
+            "langchain-text-splitters", "sentence-transformers", "transformers",
+            "tokenizers", "torch", "pypdf",
+        )},
+    }
+    store = PersistentAnswerIndex(
+        index_path if index_path is not None else CACHE / "chroma-answers",
+        pages, embeddings, make_chunks, page_metadata, config, manifest,
+    )
+    status = "Reused" if store.reused else "Built"
+    print(f"{status} local Chroma index ({store.collection.count()} answer-eligible chunks).")
     return store, tokenizer
+
+
+def page_metadata(page):
+    return {"source": page["source"], "page": page["page"], "extraction": page["extraction"],
+            "cloud_allowed": page.get("cloud_allowed"), "kind": page.get("kind", "pdf_page"),
+            "record_id": page.get("record_id"), "evidence": page.get("evidence", [])}
 
 
 def format_context(results):
@@ -306,10 +353,11 @@ def main():
     os.environ["LANGCHAIN_TRACING_V2"] = "false"
     os.environ["LANGSMITH_TRACING"] = "false"
     # Validate curated evidence before credentials, PDF work, or model initialization.
-    curated, curated_report = ([], None) if args.files else load_calendar_records()
+    manifest = {}
+    curated, curated_report = ([], None) if args.files else load_calendar_records(manifest=manifest)
     key = None if args.inspect or args.retrieve_only else answer_config()
     names = args.files or sorted(p.name for p in CORPUS.glob("*.pdf"))
-    pages, report = ([], []) if args.calendar_only else load_pages(names)
+    pages, report = ([], []) if args.calendar_only else load_pages(names, manifest=manifest)
     pages.extend(curated)
     if curated_report is not None:
         report.append(curated_report)
@@ -321,7 +369,7 @@ def main():
         raise PrototypeInputError("No usable text in the selected PDFs after extraction/OCR.")
     print("Prototype scope: all PDFs local; manuals/raw2026calendars LOCAL-ONLY; curated calendar records eligible; OCR UNVERIFIED. "
           "No memory, booking, or paid fallback.")
-    store, tokenizer = build_store(pages)
+    store, tokenizer = build_store(pages, local_only=args.retrieve_only, manifest=manifest)
     chat = None if args.retrieve_only else make_chat(key)
     while True:
         question = args.question
@@ -357,7 +405,7 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nStopped.")
-    except PrototypeInputError as error:
+    except (PrototypeInputError, StaleIndexError) as error:
         print(f"Configuration/input error: {error}", file=sys.stderr)
         sys.exit(1)
     except Exception as error:

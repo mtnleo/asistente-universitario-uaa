@@ -139,12 +139,13 @@ class Assistant:
                 os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'false'
                 os.environ['LANGCHAIN_TRACING_V2'] = 'false'
                 os.environ['LANGSMITH_TRACING'] = 'false'
-                curated, _ = rag.load_calendar_records()
+                manifest = {}
+                curated, _ = rag.load_calendar_records(manifest=manifest)
                 key = rag.answer_config()
                 names = sorted(p.name for p in rag.CORPUS.glob('*.pdf'))
-                pages, _ = rag.load_pages(names)
+                pages, _ = rag.load_pages(names, manifest=manifest)
                 pages.extend(curated)
-                store, tokenizer = rag.build_store(pages)
+                store, tokenizer = rag.build_store(pages, manifest=manifest)
                 chat = rag.make_chat(key)
                 self.pages, self.store, self.tokenizer, self.chat = pages, store, tokenizer, chat
                 self.ready = True
@@ -227,6 +228,9 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(400, {'error': str(error)})
         except Exception as error:
             import prototype_rag as rag
+            from persistent_index import StaleIndexError
+            if isinstance(error, StaleIndexError):
+                return self.reply(503, {'error': 'Se reemplazó el índice local. Cerrá y volvé a abrir el asistente.'})
             if isinstance(error, rag.PrototypeInputError):
                 return self.reply(400, {'error': str(error)})
             self.reply(503, {'error': 'No se pudo completar la consulta. Revisá la configuración local, conexión o cuota de Gemini. No se reintentó ni se usó un modelo alternativo.'})
